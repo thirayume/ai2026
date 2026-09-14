@@ -282,3 +282,21 @@ Markdown Renderer รองรับ Local Asset Reference อัตโนมั
 
 Markdown Link เดิมที่ชี้ไป Local Asset จะได้รับปุ่มดาวน์โหลดเพิ่มโดยอัตโนมัติด้วย
 จึงไม่ต้องแก้ Markdown ทุกไฟล์ทีละไฟล์
+
+## v4.9 — Google Flow Bonus Challenge
+
+เพิ่ม Special Bonus Prompt: **Thai Infinite Possibilities Challenge**
+
+- 10-second cinematic live action
+- Contemporary Thailand
+- Ordinary → Impossible → Unforgettable
+- One continuous physical reality
+- 9:16
+- 1080×1920+
+- 24fps
+- Immersive spatial sound
+- No subtitles / captions / logos / UI
+- Strong anti-stereotype and anti-cliché diversity rules
+
+ดาวน์โหลด Prompt ได้จาก:
+`assets/examples/music-mv/google-flow-thai-infinite-challenge.md`
