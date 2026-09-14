@@ -1255,3 +1255,89 @@ img, video, iframe { max-width: 100%; }
   background:linear-gradient(145deg,#ffffff 0%,#fffaf4 55%,#f4fbff 100%);
   border-color:#eadbca;
 }
+
+
+/* ---------- v4.8 Downloadable Asset References ---------- */
+.asset-file-ref{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  max-width:100%;
+  margin:3px 0;
+  padding:5px 6px 5px 9px;
+  border:1px solid #cfe0ef;
+  border-radius:10px;
+  background:#f2f7fb;
+  vertical-align:middle;
+  flex-wrap:wrap;
+}
+.asset-file-ref .asset-file-path{
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#194d76;
+  font-size:.84em;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.asset-action{
+  min-height:31px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  border:1px solid #c9d9e8;
+  border-radius:8px;
+  padding:5px 9px;
+  background:#fff;
+  color:#194d76;
+  font:700 .76rem/1 'Prompt',sans-serif;
+  text-decoration:none !important;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+}
+.asset-action:hover{
+  transform:translateY(-1px);
+  border-color:#83afd0;
+  box-shadow:0 4px 12px rgba(21,58,99,.10);
+}
+.asset-action:focus-visible{
+  outline:3px solid rgba(47,130,191,.24);
+  outline-offset:2px;
+}
+.asset-download{
+  background:#18588c;
+  border-color:#18588c;
+  color:#fff;
+}
+.asset-download:hover{color:#fff}
+.asset-source-link{
+  overflow-wrap:anywhere;
+}
+.asset-download-inline{
+  margin-left:7px;
+  min-height:28px;
+  padding:4px 8px;
+  font-size:.72rem;
+}
+@media(max-width:600px){
+  .asset-file-ref{
+    display:flex;
+    width:100%;
+    align-items:stretch;
+    padding:8px;
+    gap:6px;
+  }
+  .asset-file-ref .asset-file-path{
+    width:100%;
+    margin-bottom:2px;
+  }
+  .asset-file-ref .asset-action{
+    flex:1 1 auto;
+    min-height:38px;
+  }
+  .asset-download-inline span{
+    display:none;
+  }
+}

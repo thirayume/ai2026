@@ -62,6 +62,108 @@ $$('.mission-open').forEach(card=>{
   });
 });
 
+
+/* ---------- v4.8 Downloadable Markdown Assets ---------- */
+const LOCAL_ASSET_RE=/^(?:\.\/)?(?:assets|examples|content|data)\/[^\s"'<>?#]+(?:\?[^\s"'<>#]*)?$/i;
+
+function normalizeAssetPath(path=''){
+  return path.trim().replace(/^\.\//,'');
+}
+function isDownloadableLocalPath(path=''){
+  return LOCAL_ASSET_RE.test(normalizeAssetPath(path));
+}
+function assetFilename(path=''){
+  const clean=normalizeAssetPath(path).split('?')[0].split('#')[0];
+  return decodeURIComponent(clean.split('/').pop()||'download');
+}
+
+async function downloadLocalAsset(path){
+  const clean=normalizeAssetPath(path);
+  try{
+    showToast('กำลังเตรียมไฟล์ดาวน์โหลด...');
+    const res=await fetch(clean);
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const blob=await res.blob();
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download=assetFilename(clean);
+    a.style.display='none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+    showToast('ดาวน์โหลด '+assetFilename(clean)+' แล้ว');
+  }catch(err){
+    console.warn('Asset download failed:',clean,err);
+    showToast('ดาวน์โหลดอัตโนมัติไม่สำเร็จ — กำลังเปิดไฟล์');
+    window.open(clean,'_blank','noopener');
+  }
+}
+
+function createAssetAction(path,type='download'){
+  const el=document.createElement(type==='open'?'a':'button');
+  el.className='asset-action '+(type==='open'?'asset-open':'asset-download');
+  if(type==='open'){
+    el.href=normalizeAssetPath(path);
+    el.target='_blank';
+    el.rel='noopener';
+    el.innerHTML='<i class="fa-solid fa-arrow-up-right-from-square"></i><span>เปิด</span>';
+    el.setAttribute('aria-label','เปิดไฟล์ '+assetFilename(path));
+  }else{
+    el.type='button';
+    el.dataset.downloadAsset=normalizeAssetPath(path);
+    el.innerHTML='<i class="fa-solid fa-download"></i><span>ดาวน์โหลด</span>';
+    el.setAttribute('aria-label','ดาวน์โหลดไฟล์ '+assetFilename(path));
+  }
+  return el;
+}
+
+function enhanceMarkdownAssets(root){
+  if(!root) return;
+
+  /* Backtick references such as `assets/examples/file.md` */
+  root.querySelectorAll('code').forEach(code=>{
+    if(code.closest('pre') || code.closest('.asset-file-ref')) return;
+    const path=code.textContent.trim();
+    if(!isDownloadableLocalPath(path)) return;
+
+    const wrap=document.createElement('span');
+    wrap.className='asset-file-ref';
+    wrap.dataset.assetPath=normalizeAssetPath(path);
+
+    const pathCode=document.createElement('code');
+    pathCode.className='asset-file-path';
+    pathCode.textContent=path;
+
+    wrap.appendChild(pathCode);
+    wrap.appendChild(createAssetAction(path,'open'));
+    wrap.appendChild(createAssetAction(path,'download'));
+    code.replaceWith(wrap);
+  });
+
+  /* Existing Markdown links to a local file also receive a download action. */
+  root.querySelectorAll('a[href]').forEach(link=>{
+    if(link.closest('.asset-file-ref') || link.dataset.assetEnhanced==='1') return;
+    const href=link.getAttribute('href')||'';
+    if(!isDownloadableLocalPath(href)) return;
+
+    link.dataset.assetEnhanced='1';
+    link.classList.add('asset-source-link');
+
+    const dl=createAssetAction(href,'download');
+    dl.classList.add('asset-download-inline');
+    link.insertAdjacentElement('afterend',dl);
+  });
+}
+
+document.addEventListener('click',event=>{
+  const btn=event.target.closest('[data-download-asset]');
+  if(!btn) return;
+  event.preventDefault();
+  downloadLocalAsset(btn.dataset.downloadAsset);
+});
+
 /* ---------- Dynamic Markdown ---------- */
 let manifest=[], currentDocPath='', rawMarkdownCache='', currentSectionFilter='all';
 async function initSidebar(){
@@ -136,6 +238,7 @@ function applyFiltersAndRender(){
   $('markdown-output').innerHTML=marked.parse(content||rawMarkdownCache);
   if(typeof hljs!=='undefined') $('markdown-output').querySelectorAll('pre code').forEach(block=>hljs.highlightElement(block));
   $('markdown-output').querySelectorAll('pre').forEach(pre=>{ if(pre.querySelector('.copy-prompt-btn'))return; const btn=document.createElement('button');btn.className='copy-prompt-btn';btn.innerHTML='<i class="fa-regular fa-copy"></i> คัดลอก';btn.onclick=()=>{const code=pre.querySelector('code');navigator.clipboard.writeText(code?code.innerText:pre.innerText);showToast('คัดลอก Prompt แล้ว');};pre.appendChild(btn); });
+  enhanceMarkdownAssets($('markdown-output'));
 }
 on('reload-btn','click',()=>{fetchMarkdown(currentDocPath);showToast('รีเฟรชข้อมูลแล้ว');});
 on('prompt-search','input',applyFiltersAndRender);

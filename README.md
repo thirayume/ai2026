@@ -256,3 +256,29 @@ Reference URL ถูกใช้เพื่อวิเคราะห์คุ
 Production safety:
 Testimonials ในตัวอย่างเป็น Mock Data และแสดง Label ชัดเจน
 หากใช้เว็บจริงต้องแทนด้วยรีวิวจริงที่ได้รับอนุญาต
+
+
+## v4.8 — Downloadable Assets in Markdown
+
+Markdown Renderer รองรับ Local Asset Reference อัตโนมัติแล้ว
+
+ตัวอย่างข้อความเดิม:
+
+`assets/examples/music-mv/ai-workshop-original-lyrics.md`
+
+จะแสดงเป็น:
+- Path ของ Asset
+- ปุ่ม **เปิด**
+- ปุ่ม **ดาวน์โหลด**
+
+รองรับไฟล์ภายใต้:
+- `assets/...`
+- `examples/...`
+- `content/...`
+- `data/...`
+
+ระบบใช้ Fetch → Blob → Browser Download เพื่อให้ดาวน์โหลดได้จาก GitHub Pages
+และมี fallback เปิดไฟล์ใน Tab ใหม่หาก Browser ไม่อนุญาตการดาวน์โหลดอัตโนมัติ
+
+Markdown Link เดิมที่ชี้ไป Local Asset จะได้รับปุ่มดาวน์โหลดเพิ่มโดยอัตโนมัติด้วย
+จึงไม่ต้องแก้ Markdown ทุกไฟล์ทีละไฟล์
