@@ -35,7 +35,7 @@
 <header class="navbar">
 <button aria-label="กลับหน้า Day 0" class="brand-button" data-target="home-view">
 <i class="fa-solid fa-brain"></i>
-<span class="brand-name">AI Workshop Hub <span class="badge-tag">Day 0 · Responsive v4</span></span>
+<span class="brand-name">AI Workshop Hub <span class="badge-tag">Day 0 · Responsive v4.1</span></span>
 </button>
 <nav aria-label="เมนูหลัก" class="top-nav">
 <button aria-label="Day 0" class="nav-btn active" data-target="home-view"><i class="fa-solid fa-rocket"></i><span class="nav-label">Day 0</span></button>
@@ -76,11 +76,30 @@
 <div class="dashboard-grid">
 <article class="card asset-card">
 <div class="card-title-row"><h3><i class="fa-solid fa-diagram-project"></i> Prompt Formula</h3><button class="btn btn-secondary btn-small quick-nav" data-open-doc="content/prompt-cards.md" data-target="prompts-view">Prompt Cards</button></div>
-<img alt="Prompt formula R-C-T-F-C" src="assets/day0/02-prompt-formula.png"/>
+<div class="formula-native" aria-label="Prompt Formula R-C-T-F-C">
+  <div class="formula-title">Prompt Formula: R-C-T-F-C</div>
+  <div class="formula-grid">
+    <div class="formula-step"><b>R</b><strong>ROLE</strong><span>บทบาท</span><small>ให้ AI รับบทอะไร</small></div>
+    <div class="formula-step"><b>C</b><strong>CONTEXT</strong><span>บริบท</span><small>สอนใคร เรื่องอะไร</small></div>
+    <div class="formula-step"><b>T</b><strong>TASK</strong><span>งาน</span><small>ต้องการให้ทำอะไร</small></div>
+    <div class="formula-step"><b>F</b><strong>FORMAT</strong><span>รูปแบบ</span><small>อยากได้ผลลัพธ์แบบไหน</small></div>
+    <div class="formula-step"><b>C</b><strong>CHECK</strong><span>ตรวจสอบ</span><small>ข้อจำกัด + ตรวจคุณภาพ</small></div>
+  </div>
+  <p class="formula-caption"><strong>สูตรจำง่าย:</strong> บอกบทบาท → ให้บริบท → สั่งงาน → ระบุรูปแบบ → กำหนดข้อจำกัดและวิธีตรวจ</p>
+</div>
 </article>
 <article class="card asset-card">
 <div class="card-title-row"><h3><i class="fa-solid fa-shield-halved"></i> AI Safety Check</h3><button class="btn btn-secondary btn-small quick-nav" data-target="game-view">เล่น Bug Spotter</button></div>
-<img alt="AI safety checklist" src="assets/day0/05-ai-safety-check.png"/>
+<div class="safety-native" aria-label="AI Safety Check">
+  <h4>AI Safety Check — 5 ข้อก่อนกดส่ง / เผยแพร่</h4>
+  <ol>
+    <li>ไม่มีข้อมูลส่วนบุคคลที่ไม่จำเป็น</li>
+    <li>ตรวจข้อเท็จจริงสำคัญกับแหล่งที่เหมาะสม</li>
+    <li>แยกให้ออกว่าอะไรเป็นภาพ/เสียงที่ AI สร้าง</li>
+    <li>เคารพลิขสิทธิ์และให้เครดิตแหล่งข้อมูล</li>
+    <li>ผู้เรียนต้องอธิบายสิ่งที่สร้างและสิ่งที่แก้เองได้</li>
+  </ol>
+</div>
 </article>
 </div>
 </section>

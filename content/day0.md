@@ -51,17 +51,22 @@
 - โทรศัพท์ 1 เครื่องสำหรับทดสอบ Responsive
 - AI Assistant ที่ผู้จัดเตรียม/อนุญาต
 - Text Editor หรือ Online IDE ที่ Preview HTML ได้
-- โฟลเดอร์ `day0_ai_workshop/` จากชุดไฟล์นี้
+- Repository ของ AI Workshop Hub ชุดนี้
 
 ## ไฟล์ในชุด Workshop
 ```text
-day0_ai_workshop/
-├─ day0.md
-├─ facilitator-guide.md
-├─ prompt-cards.md
-├─ ar-word-hunt.html
-├─ interactive-quiz.html
-└─ assets/
+/
+├─ index.html
+├─ app.js
+├─ style.css
+├─ content/
+│  ├─ day0.md
+│  ├─ facilitator-guide.md
+│  └─ prompt-cards.md
+├─ examples/
+│  ├─ ar-word-hunt.html
+│  └─ interactive-quiz.html
+└─ assets/day0/
    ├─ 01-workshop-map.png
    ├─ 02-prompt-formula.png
    ├─ 03-ar-game-loop.png
@@ -100,7 +105,7 @@ day0_ai_workshop/
 4. **ให้เครดิตแหล่งข้อมูลและคนทำงาน** เมื่อมีการนำข้อมูลผู้อื่นมาใช้
 5. **AI ช่วยคิด ไม่ใช่คิดแทนทั้งหมด** ผู้เรียนต้องอธิบายสิ่งที่สร้างได้
 
-ใช้ภาพ `assets/05-ai-safety-check.png` เป็นสไลด์สรุป
+ใช้ภาพ `assets/day0/05-ai-safety-check.png` เป็นสไลด์สรุป
 
 ---
 
@@ -114,7 +119,7 @@ day0_ai_workshop/
 **F — Format**: ต้องการผลลัพธ์รูปแบบใด  
 **C — Constraints / Check**: ข้อจำกัด + วิธีตรวจคุณภาพ
 
-ดูภาพ `assets/02-prompt-formula.png`
+ดูภาพ `assets/day0/02-prompt-formula.png`
 
 ### Prompt Template กลาง
 ```text

@@ -8,7 +8,7 @@
 - เปิด `ar-word-hunt.html` และอนุญาตกล้อง
 - ถ้ารันจาก local file แล้ว browser จำกัดกล้อง ให้เสิร์ฟผ่าน localhost/HTTPS
 - เตรียม AI Assistant อย่างน้อย 1 ตัวต่อ 2–3 ทีม
-- เปิด `assets/workshop-intro.mp4` เพื่อใช้เป็น Opening
+- เปิด `assets/day0/workshop-intro.mp4` เพื่อใช้เป็น Opening
 
 ## จุดตรวจทุกช่วง
 - 00:20 ทุกคนเขียน Prompt ได้

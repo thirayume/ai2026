@@ -150,3 +150,11 @@ Single Player, Markdown, และ Demo หลักยังใช้งาน�
 - `examples/interactive-quiz.html` — ตัวอย่างเกม Quiz
 - `examples/ar-word-hunt.html` — ตัวอย่าง Camera AR
 
+
+## v4.1 — Thai Rendering Fix
+
+- แก้ปัญหาข้อความภาษาไทยใน PNG/MP4 ที่เคยแสดงเป็นสี่เหลี่ยม เนื่องจาก asset รุ่นก่อนใช้ฟอนต์ rasterization ที่ไม่มี Thai glyphs
+- สร้าง Day 0 assets ใหม่ด้วยฟอนต์ที่รองรับภาษาไทย
+- Prompt Formula และ AI Safety บนหน้า Dashboard เปลี่ยนเป็น Native HTML/CSS เพื่อให้คมชัด อ่านได้ และ Responsive ทุกขนาดจอ
+- ยืนยันว่าไฟล์ HTML/CSS/JS/Markdown/JSON ใช้ UTF-8
+- เพิ่ม Service Worker cache version ใหม่ เพื่อไม่ให้ browser ใช้ asset รุ่นเก่าจาก cache
