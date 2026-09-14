@@ -43,6 +43,25 @@ function loadMissionProgress(){
 }
 function updateMissionProgress(){ const checks=$$('.mission-check'), done=checks.filter(x=>x.checked).length; if($('mission-progress-text'))$('mission-progress-text').textContent=`${done}/${checks.length} Missions`; if($('mission-progress-bar'))$('mission-progress-bar').style.width=(checks.length?done/checks.length*100:0)+'%'; }
 
+
+/* ---------- Clickable Missions ---------- */
+$$('.mission-open').forEach(card=>{
+  const openMission=()=>{
+    switchView('prompts-view');
+    setTimeout(()=>openDocumentByFile(card.dataset.openDoc||'content/day0.md',card.dataset.find||''),60);
+  };
+  card.addEventListener('click',event=>{
+    if(event.target.closest('label,input,a,button')) return;
+    openMission();
+  });
+  card.addEventListener('keydown',event=>{
+    if((event.key==='Enter'||event.key===' ') && !event.target.closest('label,input,a,button')){
+      event.preventDefault();
+      openMission();
+    }
+  });
+});
+
 /* ---------- Dynamic Markdown ---------- */
 let manifest=[], currentDocPath='', rawMarkdownCache='', currentSectionFilter='all';
 async function initSidebar(){
@@ -62,15 +81,34 @@ function selectDocument(item,li){
   li?.classList.add('active');
   currentDocPath=item.file;
   if($('doc-breadcrumb-title'))$('doc-breadcrumb-title').textContent=item.title;
-  fetchMarkdown(item.file);
+  const loading=fetchMarkdown(item.file);
   if(window.matchMedia('(max-width: 980px)').matches){
     setTimeout(()=>$('markdown-output')?.scrollIntoView({behavior:'smooth',block:'start'}),120);
   }
+  return loading;
 }
-function openDocumentByFile(file,find=''){
-  const item=manifest.find(x=>x.file===file); if(!item){ if(file) fetchMarkdown(file); return; }
-  const li=$$('.doc-item').find(x=>x.dataset.file===file); selectDocument(item,li);
-  if(find){ setTimeout(()=>{ const q=$('prompt-search'); if(q){q.value=find;applyFiltersAndRender();} },250); }
+function resetDocumentFilters(){
+  currentSectionFilter='all';
+  $$('.chip-filter').forEach(c=>c.classList.toggle('active',c.dataset.filter==='all'));
+  if($('prompt-search')) $('prompt-search').value='';
+}
+async function openDocumentByFile(file,find=''){
+  resetDocumentFilters();
+  const item=manifest.find(x=>x.file===file);
+  if(!item){
+    if(file) await fetchMarkdown(file);
+  }else{
+    const li=$$('.doc-item').find(x=>x.dataset.file===file);
+    await selectDocument(item,li);
+  }
+  if(find){
+    const q=$('prompt-search');
+    if(q){
+      q.value=find;
+      applyFiltersAndRender();
+      setTimeout(()=>$('markdown-output')?.scrollIntoView({behavior:'smooth',block:'start'}),80);
+    }
+  }
 }
 async function fetchMarkdown(file){
   if(!file)return; currentDocPath=file; $('loading-indicator')?.classList.remove('hidden'); if($('markdown-output'))$('markdown-output').innerHTML='';
@@ -97,6 +135,16 @@ on('copy-doc-link','click',async()=>{ const url=new URL(location.href); url.hash
 /* ---------- Lab ---------- */
 $$('.open-demo').forEach(btn=>btn.addEventListener('click',()=>{ $('demo-frame').src=btn.dataset.demo; $('demo-title').textContent=btn.dataset.title||'Demo'; $('demo-stage').classList.remove('hidden'); $('demo-stage').scrollIntoView({behavior:'smooth',block:'start'}); }));
 on('close-demo','click',()=>{ $('demo-frame').src='about:blank'; $('demo-stage').classList.add('hidden'); });
+on('copy-gemini-ar-prompt','click',async()=>{
+  const text=$('gemini-ar-prompt')?.value||'';
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast('คัดลอก AR Prompt สำหรับ Gemini แล้ว');
+  }catch(e){
+    $('gemini-ar-prompt')?.select();
+    showToast('เลือก Prompt แล้ว — กด Ctrl+C เพื่อคัดลอก');
+  }
+});
 
 /* ---------- AI Bug Spotter ---------- */
 let questions=[],currentQuestionIndex=0,score=0,timer=null; const TOTAL_TIME=20; let timeLeft=TOTAL_TIME; let isHost=false,peer=null,hostConn=null,connectedGuests=[],playerScores=[]; const shapes=['fa-play','fa-square','fa-circle','fa-star'];

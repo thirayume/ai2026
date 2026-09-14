@@ -1,0 +1,129 @@
+# ✅ DAY 0 — Review, Safety & Teach Prompt Pack
+
+# หมวด E — Quality / Safety / Train-the-Trainer
+
+## Card R01 — AI Safety Check
+```text
+ตรวจผลงานนี้ก่อนใช้กับนักเรียน:
+[วางเนื้อหา/Prompt/โค้ด]
+
+ตรวจ:
+- Personal data
+- Accuracy
+- Bias / inappropriate content
+- Copyright / attribution
+- Camera / microphone permission
+- External links
+- สิ่งที่ AI สร้างขึ้นและอาจไม่จริง
+
+จัดระดับ:
+PASS / FIX BEFORE USE / DO NOT USE
+```
+
+## Card R02 — Age Appropriate Review
+```text
+ตรวจผลงานนี้ในมุม:
+1. นักเรียน ป.4–ป.6
+2. นักเรียน ม.1–ม.3
+
+ประเมิน:
+- ภาษา
+- ความยาว
+- Cognitive load
+- Button/UI size
+- Game rules
+- Feedback
+- Safety
+
+เสนอ Version Primary และ Secondary
+```
+
+## Card R03 — UX Test
+```text
+ทำหน้าที่เป็น UX Tester
+
+ตรวจเกมนี้:
+[รายละเอียด/โค้ด]
+
+Test:
+- Desktop
+- Tablet
+- Mobile
+- Touch
+- Keyboard
+- Camera allow
+- Camera deny
+- Correct answer
+- Wrong answer
+- End game
+- Restart
+
+จัด Bug:
+P0 = ใช้งานไม่ได้
+P1 = กระทบการเรียนรู้
+P2 = ปรับปรุง UX
+```
+
+## Card R04 — AI Code Reviewer
+```text
+Review โค้ดนี้ในฐานะ:
+- ครู
+- Front-end Developer
+- Privacy Reviewer
+- Accessibility Reviewer
+
+รายงาน:
+1. Bug
+2. Content risk
+3. Privacy risk
+4. Accessibility
+5. Mobile issue
+6. Quick wins
+7. สิ่งที่ต้องแก้ก่อน Publish
+```
+
+## Card R05 — Reflection
+```text
+ถามฉันทีละ 1 คำถาม รวม 5 คำถาม:
+- ฉันเรียนรู้อะไร
+- AI ช่วยตรงไหน
+- AI ทำผิดตรงไหน
+- ฉันแก้อะไรเอง
+- ฉันจะสอนต่ออย่างไร
+
+อย่าเฉลยแทนฉัน
+```
+
+## Card R06 — Teach Back 5 Minutes
+```text
+เปลี่ยนผลงานนี้เป็นแผนสอนเพื่อน 5 นาที
+
+1. WHY
+2. PROMPT
+3. BUILD
+4. TEST
+5. SAFETY
+
+แต่ละช่วงให้มี:
+- สิ่งที่จะพูด
+- สิ่งที่จะสาธิต
+- คำถามถามผู้เรียน 1 ข้อ
+```
+
+## Card R07 — Improve Prompt
+```text
+วิเคราะห์ Prompt นี้:
+[วาง Prompt]
+
+แยก:
+- Role
+- Context
+- Task
+- Format
+- Constraints
+- Quality Check
+
+บอกส่วนที่ขาด
+แล้วเขียน Prompt ฉบับปรับปรุง
+โดยไม่เปลี่ยนวัตถุประสงค์เดิม
+```

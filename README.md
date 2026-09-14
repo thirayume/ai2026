@@ -158,3 +158,27 @@ Single Player, Markdown, และ Demo หลักยังใช้งาน�
 - Prompt Formula และ AI Safety บนหน้า Dashboard เปลี่ยนเป็น Native HTML/CSS เพื่อให้คมชัด อ่านได้ และ Responsive ทุกขนาดจอ
 - ยืนยันว่าไฟล์ HTML/CSS/JS/Markdown/JSON ใช้ UTF-8
 - เพิ่ม Service Worker cache version ใหม่ เพื่อไม่ให้ browser ใช้ asset รุ่นเก่าจาก cache
+
+
+## v4.2 — AR Interaction + Mission Deep Links + Gemini Build
+
+- แก้ AR Word Hunt ให้ใช้ Pointer Events + Event Delegation เพื่อรองรับ Mouse / Touch / Stylus อย่างเสถียร
+- แตะคำตอบแล้วล็อกการตอบซ้ำ แสดง Feedback และเปลี่ยนรอบอัตโนมัติ
+- Mission Cards บนหน้า Day 0 คลิกได้ทั้งใบ และเปิด Prompt/กิจกรรมที่เกี่ยวข้องโดยตรง
+- เพิ่ม Google AI Studio Build workflow ใน AR / Game Lab
+- เพิ่ม AR Prompt พร้อม Copy และลิงก์ไป Google AI Studio Build
+- แนะนำ Workflow: Import GitHub → Prompt Gemini → Live Preview → Test Camera → Push/Export กลับ GitHub
+
+
+## v4.3 — Restored & Expanded Prompt Library
+
+สาเหตุที่ Prompt Card ดูเหมือนหาย: v4.2 มีเพียง Starter Prompt Cards 8 ใบ และยังไม่ได้แยก Prompt จากเอกสารต้นทางทั้งหมดเข้า Sidebar
+
+v4.3 เพิ่ม Prompt Library แบบแยก Pack:
+- Starter Cards
+- Learning Games
+- Visual & Story
+- AR & Gesture
+- Review & Teach
+
+รวมมากกว่า 30 Prompt Cards และ Mission Cards บนหน้า Day 0 จะเปิด Prompt Pack ที่ตรงกับ Mission โดยตรง

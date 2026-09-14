@@ -35,7 +35,7 @@
 <header class="navbar">
 <button aria-label="กลับหน้า Day 0" class="brand-button" data-target="home-view">
 <i class="fa-solid fa-brain"></i>
-<span class="brand-name">AI Workshop Hub <span class="badge-tag">Day 0 · Responsive v4.1</span></span>
+<span class="brand-name">AI Workshop Hub <span class="badge-tag">Day 0 · Responsive v4.3</span></span>
 </button>
 <nav aria-label="เมนูหลัก" class="top-nav">
 <button aria-label="Day 0" class="nav-btn active" data-target="home-view"><i class="fa-solid fa-rocket"></i><span class="nav-label">Day 0</span></button>
@@ -66,14 +66,43 @@
 <div class="progress-summary"><strong id="mission-progress-text">0/6 Missions</strong><div class="mini-progress"><span id="mission-progress-bar"></span></div></div>
 </div>
 <div class="timeline-grid" id="mission-grid">
-<article class="mission-card" data-mission="1"><span class="mission-time">00:00–00:20</span><div class="mission-num">01</div><h3>AI Safety</h3><p>AI คืออะไร, Hallucination, Privacy, ตรวจสอบก่อนเชื่อ</p><label><input class="mission-check" data-mission="1" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
-<article class="mission-card" data-mission="2"><span class="mission-time">00:20–01:00</span><div class="mission-num">02</div><h3>Prompt Power</h3><p>R-C-T-F-C และการปรับ Prompt ให้เหมาะกับประถม/มัธยม</p><label><input class="mission-check" data-mission="2" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
-<article class="mission-card" data-mission="3"><span class="mission-time">01:00–01:40</span><div class="mission-num">03</div><h3>Visual Story</h3><p>Character Continuity → Storyboard → Image/Motion Prompt</p><label><input class="mission-check" data-mission="3" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
-<article class="mission-card" data-mission="4"><span class="mission-time">01:50–02:35</span><div class="mission-num">04</div><h3>Web Game</h3><p>Learning Goal → Game Loop → Score → Feedback → Test</p><label><input class="mission-check" data-mission="4" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
-<article class="mission-card" data-mission="5"><span class="mission-time">02:35–03:25</span><div class="mission-num">05</div><h3>AR Challenge</h3><p>Camera + Overlay + Interaction; Advanced: Gesture/Three.js</p><label><input class="mission-check" data-mission="5" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
-<article class="mission-card" data-mission="6"><span class="mission-time">03:25–04:00</span><div class="mission-num">06</div><h3>Test &amp; Teach Back</h3><p>Review, Debug, Showcase และสอนต่อด้วยสูตร 5 นาที</p><label><input class="mission-check" data-mission="6" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
-</div>
-<div class="dashboard-grid">
+<article class="mission-card mission-open" data-mission="1" data-open-doc="content/prompt-review-pack.md" data-find="AI Safety Check" role="button" tabindex="0" aria-label="เปิดเนื้อหา Mission 1: AI Safety">
+<span class="mission-time">00:00–00:20</span><div class="mission-num">01</div>
+<h3>AI Safety</h3><p>AI คืออะไร, Hallucination, Privacy, ตรวจสอบก่อนเชื่อ</p>
+<div class="mission-footer"><span class="mission-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด Prompt / กิจกรรม</span>
+<label><input class="mission-check" data-mission="1" type="checkbox"/> ทำ Mission นี้แล้ว</label></div>
+</article>
+<article class="mission-card mission-open" data-mission="2" data-open-doc="content/prompt-cards.md" data-find="Explain" role="button" tabindex="0" aria-label="เปิดเนื้อหา Mission 2: Prompt Power">
+<span class="mission-time">00:20–01:00</span><div class="mission-num">02</div>
+<h3>Prompt Power</h3><p>R-C-T-F-C และการปรับ Prompt ให้เหมาะกับประถม/มัธยม</p>
+<div class="mission-footer"><span class="mission-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด Prompt / กิจกรรม</span>
+<label><input class="mission-check" data-mission="2" type="checkbox"/> ทำ Mission นี้แล้ว</label></div>
+</article>
+<article class="mission-card mission-open" data-mission="3" data-open-doc="content/prompt-visual-story-pack.md" data-find="Storyboard 6 Scenes" role="button" tabindex="0" aria-label="เปิดเนื้อหา Mission 3: Visual Story">
+<span class="mission-time">01:00–01:40</span><div class="mission-num">03</div>
+<h3>Visual Story</h3><p>Character Continuity → Storyboard → Image/Motion Prompt</p>
+<div class="mission-footer"><span class="mission-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด Prompt / กิจกรรม</span>
+<label><input class="mission-check" data-mission="3" type="checkbox"/> ทำ Mission นี้แล้ว</label></div>
+</article>
+<article class="mission-card mission-open" data-mission="4" data-open-doc="content/prompt-game-pack.md" data-find="Web Quiz Adventure" role="button" tabindex="0" aria-label="เปิดเนื้อหา Mission 4: Web Game">
+<span class="mission-time">01:50–02:35</span><div class="mission-num">04</div>
+<h3>Web Game</h3><p>Learning Goal → Game Loop → Score → Feedback → Test</p>
+<div class="mission-footer"><span class="mission-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด Prompt / กิจกรรม</span>
+<label><input class="mission-check" data-mission="4" type="checkbox"/> ทำ Mission นี้แล้ว</label></div>
+</article>
+<article class="mission-card mission-open" data-mission="5" data-open-doc="content/prompt-ar-pack.md" data-find="Camera AR Learning Hunt" role="button" tabindex="0" aria-label="เปิดเนื้อหา Mission 5: AR Challenge">
+<span class="mission-time">02:35–03:25</span><div class="mission-num">05</div>
+<h3>AR Challenge</h3><p>Camera + Overlay + Interaction; Advanced: Gesture/Three.js</p>
+<div class="mission-footer"><span class="mission-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด Prompt / กิจกรรม</span>
+<label><input class="mission-check" data-mission="5" type="checkbox"/> ทำ Mission นี้แล้ว</label></div>
+</article>
+<article class="mission-card mission-open" data-mission="6" data-open-doc="content/prompt-review-pack.md" data-find="UX Test" role="button" tabindex="0" aria-label="เปิดเนื้อหา Mission 6: Test & Teach Back">
+<span class="mission-time">03:25–04:00</span><div class="mission-num">06</div>
+<h3>Test & Teach Back</h3><p>Review, Debug, Showcase และสอนต่อด้วยสูตร 5 นาที</p>
+<div class="mission-footer"><span class="mission-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด Prompt / กิจกรรม</span>
+<label><input class="mission-check" data-mission="6" type="checkbox"/> ทำ Mission นี้แล้ว</label></div>
+</article>
+</div><div class="dashboard-grid">
 <article class="card asset-card">
 <div class="card-title-row"><h3><i class="fa-solid fa-diagram-project"></i> Prompt Formula</h3><button class="btn btn-secondary btn-small quick-nav" data-open-doc="content/prompt-cards.md" data-target="prompts-view">Prompt Cards</button></div>
 <div class="formula-native" aria-label="Prompt Formula R-C-T-F-C">
@@ -109,7 +138,7 @@
 <div class="sidebar-title"><h3>คลังเนื้อหา</h3><span class="soft-badge">Dynamic Markdown</span></div>
 <ul class="doc-list" id="dynamic-doc-list"><li class="loading-list">กำลังโหลด...</li></ul>
 <div class="quick-filter"><h4>ค้นหาในเอกสาร</h4><input id="prompt-search" placeholder="เช่น AR, Prompt, Safety..." type="search"/></div>
-<div class="category-filters" id="category-filters"><h4>กรองหัวข้อ</h4><button class="chip-filter active" data-filter="all">ทั้งหมด</button><button class="chip-filter" data-filter="Mission">Mission</button><button class="chip-filter" data-filter="Prompt">Prompt</button><button class="chip-filter" data-filter="AR">AR</button><button class="chip-filter" data-filter="Safety">Safety</button></div>
+<div class="category-filters" id="category-filters"><h4>กรองหัวข้อ</h4><button class="chip-filter active" data-filter="all">ทั้งหมด</button><button class="chip-filter" data-filter="Card">Cards</button><button class="chip-filter" data-filter="Game">Game</button><button class="chip-filter" data-filter="AR">AR</button><button class="chip-filter" data-filter="Storyboard">Story</button><button class="chip-filter" data-filter="Safety">Safety</button></div>
 </aside>
 <article class="content-area">
 <div class="content-header">
@@ -153,8 +182,53 @@
 <article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-list-check"></i></div><h3>Interactive Quiz</h3><p>ตัวอย่างเกม AI Safety แบบ HTML ไฟล์เดียว เหมาะกับ Mission 4</p><div class="lab-actions"><button class="btn btn-primary open-demo" data-demo="examples/interactive-quiz.html" data-title="Interactive Quiz">เปิดในหน้านี้</button><a class="btn btn-secondary" href="examples/interactive-quiz.html" rel="noopener" target="_blank">เปิด Tab ใหม่</a></div></article>
 <article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-camera-retro"></i></div><h3>AR Word Hunt</h3><p>Camera background + HTML overlay + Tap/Score เป็น Core AR ที่ทำได้ใน 4 ชั่วโมง</p><div class="lab-actions"><button class="btn btn-accent open-demo" data-demo="examples/ar-word-hunt.html" data-title="AR Word Hunt">เปิดในหน้านี้</button><a class="btn btn-secondary" href="examples/ar-word-hunt.html" rel="noopener" target="_blank">เปิด Tab ใหม่</a></div></article>
 <article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-code"></i></div><h3>Advanced Challenge</h3><p>ต่อยอดด้วย MediaPipe Hands + Three.js + Gesture Control ตาม Prompt ใน Day 0</p><div class="lab-actions"><button class="btn btn-secondary quick-nav" data-find="Advanced Challenge" data-open-doc="content/day0.md" data-target="prompts-view">เปิด Prompt</button></div></article>
+<article class="lab-card gemini-card"><div class="lab-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>สร้าง/แก้ AR ด้วย Gemini</h3><p>Copy Prompt → เปิด Google AI Studio Build → ให้ Gemini สร้างหรือ Import GitHub → ทดสอบ Live Preview แล้วค่อย Push กลับ GitHub</p><div class="lab-actions"><button class="btn btn-primary" id="copy-gemini-ar-prompt"><i class="fa-regular fa-copy"></i> Copy AR Prompt</button><a class="btn btn-accent" href="https://aistudio.google.com/apps" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด AI Studio Build</a></div></article>
 </div>
-<div class="demo-stage hidden" id="demo-stage"><div class="demo-toolbar"><div><strong id="demo-title">Demo</strong><span> · iframe sandbox (อนุญาต Camera)</span></div><button class="btn btn-secondary" id="close-demo"><i class="fa-solid fa-xmark"></i> ปิด</button></div><iframe allow="camera; microphone" id="demo-frame" loading="lazy" title="Workshop demo"></iframe></div>
+
+<div class="gemini-workflow card">
+<div class="card-title-row"><div><span class="eyebrow">GEMINI BUILD WORKFLOW</span><h3>Prompt → Generate → Live Preview → Test → GitHub</h3></div><span class="soft-badge">Recommended</span></div>
+<div class="gemini-steps">
+<div><strong>1</strong><span>กด Copy AR Prompt</span></div>
+<div><strong>2</strong><span>เปิด Google AI Studio → Build</span></div>
+<div><strong>3</strong><span>Paste Prompt หรือ Import GitHub</span></div>
+<div><strong>4</strong><span>ทดสอบ Live Preview / เปิด Tab ใหม่เพื่อ Camera</span></div>
+<div><strong>5</strong><span>Export / Push กลับ GitHub</span></div>
+</div>
+<details class="prompt-details"><summary>ดู Prompt ที่เตรียมไว้</summary><textarea id="gemini-ar-prompt" readonly>แก้ไข/สร้างเกม AR สำหรับ Workshop การศึกษา โดยให้พร้อมทดสอบใน Browser
+
+เป้าหมาย:
+สร้างเกม "AR Word Hunt" สำหรับนักเรียนประถม/มัธยม โดยใช้กล้องจริงเป็นฉากหลัง และมีคำศัพท์ลอยบนหน้าจอ
+
+ข้อกำหนด:
+- Web app responsive ใช้ได้ Desktop / Tablet / Mobile
+- เปิดกล้องด้วย navigator.mediaDevices.getUserMedia หลังผู้ใช้กดปุ่มเท่านั้น
+- ไม่บันทึกและไม่อัปโหลดภาพจากกล้อง
+- คำเป้าหมาย: คำกริยา เช่น วิ่ง อ่าน เขียน เดิน นอน กระโดด ร้อง ว่ายน้ำ เต้น ยิ้ม
+- คำหลอก: ครู บ้าน โรงเรียน แมว หนังสือ โต๊ะ ดินสอ ต้นไม้ รถ ปลา
+- แต่ละรอบแสดง 3 คำ: คำกริยา 1 + คำหลอก 2
+- แตะคำกริยา: +10 และไปข้อต่อไปอัตโนมัติ
+- แตะคำหลอก: -5 แต่คะแนนไม่ต่ำกว่า 0 และไปข้อต่อไป
+- ทั้งหมด 10 รอบ
+- รองรับ mouse, touch, stylus ด้วย Pointer Events
+- ป้องกันการกดซ้ำระหว่างเปลี่ยนข้อ
+- มี feedback สีเขียว/แดงก่อนเปลี่ยนข้อ
+- ถ้ากล้องถูกปฏิเสธ ให้เกมเล่นต่อด้วย background สำรอง
+- UI ภาษาไทย ตัวอักษรใหญ่ อ่านง่าย
+- Accessibility: keyboard, aria-label, focus state
+- หลีกเลี่ยงการใช้ global variables จาก element id; ใช้ document.getElementById ชัดเจน
+- ถ้าฉัน Import GitHub repository นี้เข้ามา ให้รักษาโครงสร้าง Static GitHub Pages เดิม
+- ถ้าเป็นไปได้ใช้ HTML/CSS/JavaScript แบบ static ไม่มี backend และไม่มี build step
+
+หลังแก้ไข:
+1. ตรวจว่าแตะ "นอน" แล้วได้ +10 จริง
+2. ตรวจว่า score update ทันที
+3. ตรวจว่าเปลี่ยนรอบภายในประมาณ 0.8 วินาที
+4. ทดสอบ Desktop และ Mobile viewport
+5. สรุปไฟล์ที่แก้และเหตุผล</textarea></details>
+<p class="gemini-note"><i class="fa-solid fa-circle-info"></i> ระบบ Workshop นี้เป็น Static GitHub Pages จึงไม่ฝัง Gemini API key ไว้ในหน้าเว็บ แต่ใช้ AI Studio Build เป็นพื้นที่สร้างและทดสอบโค้ด แล้วนำผลลัพธ์กลับมาที่ Repository จะปลอดภัยและสอนต่อได้ง่ายกว่า</p>
+</div>
+
+<div class="demo-stage hidden" id="demo-stage"><div class="demo-toolbar"><div><strong id="demo-title">Demo</strong><span> · Live Preview (อนุญาต Camera)</span></div><button class="btn btn-secondary" id="close-demo"><i class="fa-solid fa-xmark"></i> ปิด</button></div><iframe allow="camera; microphone" id="demo-frame" loading="lazy" title="Workshop demo"></iframe></div>
 <div class="card tips-card"><h3><i class="fa-solid fa-lightbulb"></i> วิธีใช้ในห้องอบรม</h3><div class="tip-steps"><div><strong>1. Run</strong><span>เล่น Demo ก่อน</span></div><div><strong>2. Remix</strong><span>เปลี่ยนคำถาม/คำศัพท์</span></div><div><strong>3. Test</strong><span>Desktop + Mobile</span></div><div><strong>4. Explain</strong><span>อธิบาย Logic ให้เพื่อน</span></div></div></div>
 </section>
 </main>

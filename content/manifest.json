@@ -1,7 +1,101 @@
 [
-  {"title":"DAY 0 — AI Creator & AR Game","file":"content/day0.md","icon":"fa-rocket","category":"Day 0","tags":["Workshop","Prompt","AR","Game","Safety"]},
-  {"title":"DAY 0 — Prompt Cards","file":"content/prompt-cards.md","icon":"fa-layer-group","category":"Day 0","tags":["Prompt","Quick Reference"]},
-  {"title":"DAY 0 — Facilitator Guide","file":"content/facilitator-guide.md","icon":"fa-person-chalkboard","category":"Day 0","tags":["Trainer","Workshop"]},
-  {"title":"DAY 1 — AI เพื่อการศึกษา","file":"content/day1-education.md","icon":"fa-graduation-cap","category":"Day 1","tags":["Education"]},
-  {"title":"DAY 2 — AI งานประจำ","file":"content/day2-workplace.md","icon":"fa-briefcase","category":"Day 2","tags":["Workplace"]}
+  {
+    "title": "DAY 0 — AI Creator & AR Game",
+    "file": "content/day0.md",
+    "icon": "fa-rocket",
+    "category": "Day 0",
+    "tags": [
+      "Workshop",
+      "Mission",
+      "AR",
+      "Game",
+      "Safety"
+    ]
+  },
+  {
+    "title": "PROMPTS — Starter Cards",
+    "file": "content/prompt-cards.md",
+    "icon": "fa-layer-group",
+    "category": "Prompt",
+    "tags": [
+      "Prompt",
+      "Quick Reference",
+      "Starter"
+    ]
+  },
+  {
+    "title": "PROMPTS — Learning Games",
+    "file": "content/prompt-game-pack.md",
+    "icon": "fa-gamepad",
+    "category": "Prompt",
+    "tags": [
+      "Prompt",
+      "Game",
+      "Education"
+    ]
+  },
+  {
+    "title": "PROMPTS — Visual & Story",
+    "file": "content/prompt-visual-story-pack.md",
+    "icon": "fa-clapperboard",
+    "category": "Prompt",
+    "tags": [
+      "Prompt",
+      "Image",
+      "Storyboard",
+      "Video"
+    ]
+  },
+  {
+    "title": "PROMPTS — AR & Gesture",
+    "file": "content/prompt-ar-pack.md",
+    "icon": "fa-vr-cardboard",
+    "category": "Prompt",
+    "tags": [
+      "Prompt",
+      "AR",
+      "MediaPipe",
+      "Three.js"
+    ]
+  },
+  {
+    "title": "PROMPTS — Review & Teach",
+    "file": "content/prompt-review-pack.md",
+    "icon": "fa-list-check",
+    "category": "Prompt",
+    "tags": [
+      "Prompt",
+      "Safety",
+      "Review",
+      "Trainer"
+    ]
+  },
+  {
+    "title": "DAY 0 — Facilitator Guide",
+    "file": "content/facilitator-guide.md",
+    "icon": "fa-person-chalkboard",
+    "category": "Day 0",
+    "tags": [
+      "Trainer",
+      "Workshop"
+    ]
+  },
+  {
+    "title": "DAY 1 — AI เพื่อการศึกษา",
+    "file": "content/day1-education.md",
+    "icon": "fa-graduation-cap",
+    "category": "Day 1",
+    "tags": [
+      "Education"
+    ]
+  },
+  {
+    "title": "DAY 2 — AI งานประจำ",
+    "file": "content/day2-workplace.md",
+    "icon": "fa-briefcase",
+    "category": "Day 2",
+    "tags": [
+      "Workplace"
+    ]
+  }
 ]

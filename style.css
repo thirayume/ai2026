@@ -1027,3 +1027,104 @@ img, video, iframe { max-width: 100%; }
   .formula-step{min-height:auto}
   .safety-native li{padding-left:48px;font-size:.9rem}
 }
+
+
+/* ---------- v4.2 Mission links + Gemini Build workflow ---------- */
+.mission-open { cursor: pointer; outline: none; }
+.mission-open:focus-visible {
+  box-shadow: 0 0 0 4px rgba(47,130,191,.18), var(--shadow-sm);
+  border-color: #78add3;
+}
+.mission-footer {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.mission-card .mission-footer label { margin-top:0; }
+.mission-link {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--primary-2);
+  font-size:.77rem;
+  font-weight:700;
+}
+.mission-open:hover .mission-link { text-decoration:underline; }
+
+.gemini-card {
+  border-color:#c9ddf5;
+  background:linear-gradient(145deg,#ffffff,#f6f9ff);
+}
+.gemini-workflow { margin-top:18px; }
+.gemini-steps {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+  margin:18px 0;
+}
+.gemini-steps>div {
+  min-width:0;
+  padding:14px 12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#f8fbff;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.gemini-steps strong {
+  flex:0 0 30px;
+  width:30px;height:30px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--primary);
+  color:#fff;
+}
+.gemini-steps span { color:#435a73;font-size:.83rem;line-height:1.45; }
+.prompt-details {
+  margin-top:12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fbfdff;
+  overflow:hidden;
+}
+.prompt-details summary {
+  cursor:pointer;
+  padding:13px 15px;
+  color:#173b60;
+  font-weight:700;
+}
+#gemini-ar-prompt {
+  display:block;
+  width:100%;
+  min-height:410px;
+  border:0;
+  border-top:1px solid var(--border);
+  padding:16px;
+  resize:vertical;
+  background:#0f172a;
+  color:#e5edf7;
+  font:500 .86rem/1.65 'Prompt',sans-serif;
+}
+.gemini-note {
+  margin:14px 0 0;
+  padding:12px 14px;
+  border-radius:12px;
+  background:#eef8ff;
+  color:#375b77;
+  font-size:.84rem;
+  line-height:1.65;
+}
+@media (max-width:980px){
+  .gemini-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gemini-steps>div:last-child{grid-column:1/-1}
+}
+@media (max-width:600px){
+  .mission-footer{align-items:flex-start;flex-direction:column}
+  .gemini-steps{grid-template-columns:1fr}
+  .gemini-steps>div:last-child{grid-column:auto}
+  #gemini-ar-prompt{min-height:520px;font-size:.8rem}
+}
