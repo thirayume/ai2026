@@ -300,3 +300,17 @@ Markdown Link เดิมที่ชี้ไป Local Asset จะได้�
 
 ดาวน์โหลด Prompt ได้จาก:
 `assets/examples/music-mv/google-flow-thai-infinite-challenge.md`
+
+
+## v4.10 — Google Flow Bonus Navigation Fix
+
+แก้ปัญหา v4.9 ที่ปุ่ม `data-find` ใช้ Search Filter ทำให้เห็นเพียงหัวข้อ Bonus
+แต่ส่วน Asset และ Prompt ที่อยู่ใน Subsection ถัดไปถูก Filter ออก
+
+v4.10:
+- `data-find` ทำหน้าที่เป็น Deep Link / Scroll เท่านั้น
+- แสดงเอกสาร Markdown เต็มทั้งหน้าเสมอ
+- Highlight section ที่เปิดจาก Mission/Lab ชั่วคราว
+- เพิ่ม Sidebar entry แยก:
+  `BONUS — Google Flow: Thai Infinite Challenge`
+- Bonus Prompt มี Asset ดาวน์โหลด + Prompt ฉบับเต็มในหน้าเดียว

@@ -204,6 +204,23 @@ function resetDocumentFilters(){
   $$('.chip-filter').forEach(c=>c.classList.toggle('active',c.dataset.filter==='all'));
   if($('prompt-search')) $('prompt-search').value='';
 }
+function normalizeFindText(text=''){
+  return text.toLowerCase().replace(/\s+/g,' ').trim();
+}
+function scrollToMarkdownMatch(find=''){
+  const root=$('markdown-output');
+  if(!root||!find)return false;
+  const needle=normalizeFindText(find);
+  const preferred=[...root.querySelectorAll('h1,h2,h3,h4,h5,h6')];
+  const fallback=[...root.querySelectorAll('p,blockquote,li,strong')];
+  const target=[...preferred,...fallback].find(el=>normalizeFindText(el.textContent).includes(needle));
+  if(!target)return false;
+  root.querySelectorAll('.deep-link-highlight').forEach(el=>el.classList.remove('deep-link-highlight'));
+  target.classList.add('deep-link-highlight');
+  target.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>target.classList.remove('deep-link-highlight'),2600);
+  return true;
+}
 async function openDocumentByFile(file,find=''){
   resetDocumentFilters();
   const item=manifest.find(x=>x.file===file);
@@ -214,12 +231,15 @@ async function openDocumentByFile(file,find=''){
     await selectDocument(item,li);
   }
   if(find){
-    const q=$('prompt-search');
-    if(q){
-      q.value=find;
-      applyFiltersAndRender();
-      setTimeout(()=>$('markdown-output')?.scrollIntoView({behavior:'smooth',block:'start'}),80);
-    }
+    // IMPORTANT: data-find is navigation, not search filtering.
+    // Keep the full Markdown visible, then scroll to the requested section.
+    if($('prompt-search')) $('prompt-search').value='';
+    applyFiltersAndRender();
+    setTimeout(()=>{
+      if(!scrollToMarkdownMatch(find)){
+        $('markdown-output')?.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    },120);
   }
 }
 async function fetchMarkdown(file){

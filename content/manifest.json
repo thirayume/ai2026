@@ -176,6 +176,21 @@
     "group": "CREATIVE PRODUCTION"
   },
   {
+    "title": "BONUS — Google Flow: Thai Infinite Challenge",
+    "file": "content/prompt-google-flow-bonus.md",
+    "icon": "fa-wand-magic-sparkles",
+    "category": "Creative",
+    "tags": [
+      "Google Flow",
+      "Video",
+      "Thailand",
+      "Challenge",
+      "Bonus"
+    ],
+    "order": 98,
+    "group": "CREATIVE PRODUCTION"
+  },
+  {
     "title": "DAY 1 — AI เพื่อการศึกษา",
     "file": "content/day1-education.md",
     "icon": "fa-graduation-cap",
