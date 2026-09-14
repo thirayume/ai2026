@@ -182,3 +182,29 @@ v4.3 เพิ่ม Prompt Library แบบแยก Pack:
 - Review & Teach
 
 รวมมากกว่า 30 Prompt Cards และ Mission Cards บนหน้า Day 0 จะเปิด Prompt Pack ที่ตรงกับ Mission โดยตรง
+
+
+## v4.4 — Full Production + Marketing & Brand Strategy
+
+เพิ่มและรวมจากระบบเดิมทั้งหมด:
+- Day 0 Workshop 4 ชั่วโมง
+- Prompt Library ที่มี Template + Assets + ตัวอย่าง Prompt พร้อมใช้
+- Day 1 AI เพื่อการศึกษา
+- Day 2 AI เพื่อการทำงานประจำ
+- Game Prompt Pack
+- Visual & Story Pack
+- AR & Gesture Pack
+- Review / Safety / Teach Pack
+- AI Safety / Ethics / PDPA Checklist
+- Marketing & Brand Strategy Pack
+- Mock Workshop Assets
+- Interactive Quiz
+- AR Word Hunt
+- AI Bug Spotter
+- Gemini / Google AI Studio Build Workflow
+- PWA / Service Worker / GitHub Pages
+
+### Marketing Workflow
+Research Demand → Research Competitor → Business Brain → Brand Value → Positioning → Persona → Pain Point → USP → 10 Topics → Content → Polish → KV → Jingle
+
+Research Prompt ที่ต้องใช้ข้อมูลล่าสุดควรรันบน AI ที่มี Web/Search และต้องตรวจลิงก์/วันที่ข้อมูลก่อนใช้จริง

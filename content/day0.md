@@ -149,6 +149,38 @@ QUALITY CHECK:
 และระบุ 3 จุดที่ครูควรตรวจสอบก่อนนำไปใช้
 ```
 
+#### 📦 Assets ที่ใช้
+- [`lesson-food-chain.md`](assets/examples/lesson-food-chain.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ROLE:
+คุณคือ ครูวิทยาศาสตร์และนักออกแบบกิจกรรมการเรียนรู้
+
+CONTEXT:
+ฉันกำลังสอนเรื่อง โซ่อาหาร
+ผู้เรียนระดับ ป.5
+ความรู้เดิมของผู้เรียนคือ ผู้เรียนรู้จักพืชและสัตว์แล้ว แต่ยังสับสนบทบาทผู้ผลิต/ผู้บริโภค
+
+TASK:
+ช่วยสร้าง กิจกรรมเกมจัดลำดับโซ่อาหาร 15 นาที
+
+FORMAT:
+ให้ผลลัพธ์เป็น ตารางกิจกรรม + คำถามท้ายกิจกรรม 5 ข้อ
+
+CONSTRAINTS:
+- ใช้ภาษาที่เหมาะกับวัย
+- ระยะเวลาไม่เกิน 15 นาที
+- ระบุคำตอบ/เฉลย
+- หลีกเลี่ยงข้อมูลส่วนบุคคล
+- ถ้าไม่แน่ใจ ให้บอกว่า "ควรตรวจสอบ"
+
+QUALITY CHECK:
+ตรวจว่าผลลัพธ์ตรงตามจุดประสงค์การเรียนรู้หรือไม่
+และระบุ 3 จุดที่ครูควรตรวจสอบก่อนนำไปใช้
+```
+
+
 ## Challenge: “หัวข้อเดียว — สองวัย”
 เลือก 1 หัวข้อ เช่น
 - ระบบสุริยะ
@@ -202,6 +234,30 @@ QUALITY CHECK:
 พื้นหลังเรียบ ไม่มีข้อความ ไม่มีลายน้ำ
 ```
 
+#### 📦 Assets ที่ใช้
+- [`character-brief-byte.md`](assets/examples/character-brief-byte.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+สร้างตัวละครมาสคอต 3D สำหรับสื่อการเรียนรู้
+ชื่อ: "น้องไบต์"
+บทบาท: ผู้ช่วยเรียนรู้เรื่อง Digital Safety
+กลุ่มเป้าหมาย: นักเรียนประถมปลาย
+ลักษณะ: หุ่นยนต์ตัวเล็ก เป็นมิตร สีฟ้า-ขาว กระเป๋าเป้สีเหลือง
+ต้องคงรูปร่าง สี เครื่องแต่งกาย และสัดส่วนเหมือนกันทุกภาพ
+ขอ Character Sheet:
+1) front
+2) 3/4
+3) side
+4) back
+5) happy
+6) surprised
+พื้นหลังเรียบ ไม่มีข้อความ ไม่มีลายน้ำ
+
+ใช้ character-brief-byte.md เป็น Character Truth Sheet และต้องคงสี รูปร่าง กระเป๋าเป้ และดวงตาเหมือนเดิมทุกมุม
+```
+
+
 ## Step 2 — สร้าง Storyboard 4–6 ฉาก
 เวอร์ชันเต็มในเอกสารตัวอย่างใช้โครงสร้าง เปิดเรื่อง → ปัญหา → เรียนรู้ → แก้ปัญหา → สรุป และกำหนดข้อมูลกล้อง/การเคลื่อนไหวอย่างชัดเจน
 
@@ -236,6 +292,44 @@ RULES:
 - บทเรียนสุดท้ายต้องมี Checklist 3 ข้อ
 ```
 
+#### 📦 Assets ที่ใช้
+- [`story-seed-phishing.md`](assets/examples/story-seed-phishing.md)
+- [`character-brief-byte.md`](assets/examples/character-brief-byte.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ROLE:
+คุณคือผู้กำกับแอนิเมชันและครูผู้สอน
+
+INPUT:
+หัวข้อ: "รู้ทัน Phishing"
+กลุ่มเป้าหมาย: ม.1–ม.3
+ตัวละครหลัก: น้องไบต์
+
+TASK:
+สร้าง Storyboard 6 ฉาก ความยาวรวม 60–90 วินาที
+โครงเรื่อง: Hook → Problem → Clue → Decision → Solution → Lesson
+
+แต่ละฉากให้มี:
+- Scene
+- Narration
+- Action
+- Emotion
+- Camera Shot
+- Key Lesson
+- Image Prompt (English)
+- Motion Prompt (English)
+
+RULES:
+- ตัวละครต้องคงเอกลักษณ์เดิมทุกฉาก
+- ภาษากระชับ
+- ไม่มีข้อมูลส่วนบุคคลจริง
+- บทเรียนสุดท้ายต้องมี Checklist 3 ข้อ
+
+ใช้ story-seed-phishing.md เป็นเนื้อเรื่องหลัก และ character-brief-byte.md เป็น Character Reference ห้ามเพิ่มเหตุการณ์ที่เปลี่ยน Key Lesson
+```
+
+
 ## Step 3 — ทำ “ภาพนิ่งให้คิดเป็นวิดีโอ”
 ให้แต่ละทีมเลือก 1 ฉาก แล้วเขียน Motion Prompt เช่น:
 
@@ -245,6 +339,23 @@ points at a suspicious email on a floating screen.
 Subtle blinking warning icon, classroom background,
 friendly educational tone, smooth motion, 5 seconds.
 ```
+
+#### 📦 Assets ที่ใช้
+- [`story-seed-phishing.md`](assets/examples/story-seed-phishing.md)
+- [`character-brief-byte.md`](assets/examples/character-brief-byte.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+Slow push-in camera, the small blue-and-white robot mascot
+points at a suspicious email on a floating screen.
+Subtle blinking warning icon, classroom background,
+friendly educational tone, smooth motion, 5 seconds.
+
+Source of Truth: character-brief-byte.md
+Scene context: story-seed-phishing.md
+Lock character identity, costume colors and classroom layout.
+```
+
 
 > ไม่จำเป็นต้อง Generate Video จริงทุกทีม หากเวลา/เครดิตจำกัด ให้ใช้ Storyboard + Motion Prompt เป็นผลงาน
 
@@ -318,6 +429,49 @@ CONTENT:
 OUTPUT:
 ส่งโค้ด HTML ฉบับเดียว พร้อม comment อธิบายส่วนที่ครูควรแก้
 ```
+
+#### 📦 Assets ที่ใช้
+- [`web-game-spec.md`](assets/examples/web-game-spec.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ROLE:
+คุณคือ Game Designer + ครู + Front-end Developer
+
+CONTEXT:
+สร้างเกมสำหรับนักเรียน ป.6–ม.2
+หัวข้อ AI Safety
+จุดประสงค์การเรียนรู้ ผู้เรียนแยกข้อมูลส่วนบุคคล, Phishing และข้อมูลที่ควร Fact Check ได้
+
+TASK:
+สร้างเกม Web แบบ Interactive เล่นได้ทั้งมือถือและคอมพิวเตอร์
+ใช้ HTML/CSS/JavaScript ในไฟล์เดียว
+
+GAME LOOP:
+- Start
+- แสดงภารกิจ
+- เล่น 8 ข้อ
+- ตอบถูก +10 พร้อม feedback
+- ตอบผิดแสดงเฉลยสั้น ๆ
+- มี progress 1/8
+- จบเกมแสดงคะแนน + สิ่งที่ควรทบทวน
+
+UX:
+- ตัวอักษรใหญ่
+- ปุ่มชัดเจน
+- Responsive
+- สีอ่านง่าย
+- ไม่ให้ Animation บังเนื้อหา
+- มีปุ่มเล่นใหม่
+
+CONTENT:
+สร้างคำถามและเฉลยให้เหมาะกับวัย
+แต่ให้ครูสามารถแก้รายการคำถามในตัวแปร JavaScript ได้ง่าย
+
+OUTPUT:
+ส่งโค้ด HTML ฉบับเดียว พร้อม comment อธิบายส่วนที่ครูควรแก้
+```
+
 
 ### ทดลองทันที
 เปิดไฟล์ `interactive-quiz.html`
@@ -403,6 +557,52 @@ OUTPUT:
 HTML ไฟล์เดียวที่ Copy แล้วรันได้
 ```
 
+#### 📦 Assets ที่ใช้
+- [`ar-verb-words.json`](assets/examples/ar-verb-words.json)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ROLE:
+คุณคือ Web AR Game Designer และครู
+
+TASK:
+สร้างเกม "AR Learning Hunt" ด้วย HTML/CSS/JavaScript ในไฟล์เดียว
+
+CORE:
+- ใช้ getUserMedia เปิดกล้องเป็นพื้นหลังเต็มจอ
+- สร้างคำ/การ์ดลอยบนจอเป็น HTML Overlay
+- ผู้เล่นแตะหรือคลิกคำตอบ
+- มี Target Category 1 หมวด
+- ถูก +10, ผิด -5 แต่คะแนนไม่ต่ำกว่า 0
+- เล่น 10 รอบ
+- มี Score, Round, Feedback
+- มี Start / Restart
+- Responsive สำหรับมือถือ
+- ถ้ากล้องใช้งานไม่ได้ ให้มีโหมด Background สำรอง
+
+CONTENT:
+หัวข้อ: คำกริยา
+ระดับชั้น: ป.5
+รายการคำถูก: อ่านรายการจากไฟล์ ar-verb-words.json ที่แนบมา
+รายการคำหลอก: อ่านรายการจากไฟล์ ar-verb-words.json ที่แนบมา
+
+SAFETY & UX:
+- ขอ Permission กล้องเมื่อผู้ใช้กดปุ่มเท่านั้น
+- ไม่บันทึกภาพหรือวิดีโอ
+- ไม่อัปโหลด Camera Stream
+- ตัวอักษรใหญ่ อ่านง่าย
+- อธิบาย comment จุดที่ครูเปลี่ยนคำศัพท์ได้
+
+OUTPUT:
+HTML ไฟล์เดียวที่ Copy แล้วรันได้
+
+CONTENT:
+รายการคำถูกและคำหลอกให้อ่านจาก ar-verb-words.json
+TEST:
+แตะคำ “นอน” ต้องได้ +10 และเปลี่ยนรอบอัตโนมัติ
+```
+
+
 ## Advanced Challenge — Gesture AR
 สำหรับทีมมัธยม/ครูคอมพิวเตอร์ที่ต้องการต่อยอด:
 
@@ -415,6 +615,23 @@ HTML ไฟล์เดียวที่ Copy แล้วรันได้
 - ถ้า tracking หลุด ให้เกมยังทำงานต่อได้
 - มีปุ่มสลับ mirrored camera
 ```
+
+#### 📦 Assets ที่ใช้
+- [`ar-verb-words.json`](assets/examples/ar-verb-words.json)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+เพิ่ม MediaPipe Hands:
+- ตรวจจับมือ 1–2 มือ
+- Pinch = เลือกวัตถุ
+- Open Palm = ยืนยัน
+- แสดงสถานะ tracking
+- ถ้า tracking หลุด ให้เกมยังทำงานต่อได้
+- มีปุ่มสลับ mirrored camera
+
+นำ Gesture นี้ไปใช้กับ AR Word Hunt คำกริยา โดยอ่านข้อมูลจาก ar-verb-words.json และต้องมี Mouse/Touch fallback
+```
+
 
 > หากต้องการต่อยอดเป็น “AR ยิงธนู” ให้เพิ่ม Three.js, ฟิสิกส์ลูกธนู, Gesture State และ Collision Detection ในภายหลัง ไม่ควรใช้เป็นงานบังคับของผู้เริ่มต้นในเวลา 4 ชั่วโมง
 
@@ -457,6 +674,34 @@ HTML ไฟล์เดียวที่ Copy แล้วรันได้
 
 จากนั้นจัดลำดับ Fix เป็น P0 / P1 / P2
 ```
+
+#### 📦 Assets ที่ใช้
+- [`sample-buggy-game.js`](assets/examples/sample-buggy-game.js)
+- [`web-game-spec.md`](assets/examples/web-game-spec.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ตรวจเกมต่อไปนี้ในฐานะ:
+1) ครูผู้สอน
+2) นักเรียนประถม
+3) นักเรียนมัธยม
+4) UX Tester
+
+รายงานเป็นตาราง:
+- จุดที่ดี
+- จุดที่สับสน
+- ความเสี่ยงด้านเนื้อหา
+- ความเสี่ยงด้าน Privacy
+- Bug ที่เป็นไปได้
+- สิ่งที่ควรแก้ก่อนใช้จริง
+
+จากนั้นจัดลำดับ Fix เป็น P0 / P1 / P2
+
+เกมที่จะตรวจ: web-game-spec.md
+โค้ดตัวอย่างที่มี Bug: sample-buggy-game.js
+ให้ชี้ Root Cause ของการกดซ้ำและคะแนนติดลบ
+```
+
 
 ---
 
@@ -528,6 +773,24 @@ HTML ไฟล์เดียวที่ Copy แล้วรันได้
 7) วิธีวัดผลหลังเล่น
 ```
 
+#### 📦 Assets ที่ใช้
+- [`lesson-food-chain.md`](assets/examples/lesson-food-chain.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+เปลี่ยนเนื้อหาเรื่อง โซ่อาหาร เป็นเกมการเรียนรู้
+กลุ่มเป้าหมาย ป.5
+สร้าง:
+1) Learning Goal
+2) Game Loop
+3) กติกา
+4) 10 ตัวอย่างคำถาม/วัตถุ
+5) Feedback ถูก/ผิด
+6) วิธีปรับเป็นระดับง่ายและยาก
+7) วิธีวัดผลหลังเล่น
+```
+
+
 ## B. Prompt “ปรับภาษาให้เหมาะกับวัย”
 ```text
 นำเนื้อหานี้: [วางเนื้อหา]
@@ -538,6 +801,21 @@ B) ม.1–ม.3 — เพิ่มเหตุผลและคำศัพ�
 ห้ามลดทอนสาระจนผิดความหมาย
 ทำตารางเปรียบเทียบคำศัพท์ที่เปลี่ยน
 ```
+
+#### 📦 Assets ที่ใช้
+- [`lesson-food-chain.md`](assets/examples/lesson-food-chain.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+นำเนื้อหานี้: ใช้เนื้อหาทั้งหมดจากไฟล์ lesson-food-chain.md ที่แนบมา
+สร้าง 2 เวอร์ชัน:
+A) ป.4–ป.6 — ประโยคสั้น ตัวอย่างใกล้ตัว
+B) ม.1–ม.3 — เพิ่มเหตุผลและคำศัพท์สำคัญ
+
+ห้ามลดทอนสาระจนผิดความหมาย
+ทำตารางเปรียบเทียบคำศัพท์ที่เปลี่ยน
+```
+
 
 ## C. Prompt “สร้าง Challenge Cards”
 ```text
@@ -553,6 +831,26 @@ B) ม.1–ม.3 — เพิ่มเหตุผลและคำศัพ�
 ครอบคลุม: Prompt, Image, Storyboard, Game, AR, Fact Check
 ```
 
+#### 📦 Assets ที่ใช้
+- [`challenge-topic-list.md`](assets/examples/challenge-topic-list.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+สร้าง Challenge การใช้ AI จำนวน 6 ใบ
+สำหรับครูและนักเรียนแกนนำ
+แต่ละใบมี:
+- Mission
+- Input
+- Constraint
+- Expected Output
+- Bonus
+ใช้เวลาใบละ 10–15 นาที
+ครอบคลุม: Prompt, Image, Storyboard, Game, AR, Fact Check
+
+เลือกหัวข้อจาก challenge-topic-list.md ให้ครบทั้ง Primary และ Secondary อย่างน้อยกลุ่มละ 2 ใบ
+```
+
+
 ## D. Prompt “Reflection”
 ```text
 ถามฉันทีละ 1 คำถาม เพื่อช่วย Reflection หลังทำเกม
@@ -564,6 +862,24 @@ B) ม.1–ม.3 — เพิ่มเหตุผลและคำศัพ�
 - ฉันแก้อะไรเอง
 - ฉันจะสอนต่ออย่างไร
 ```
+
+#### 📦 Assets ที่ใช้
+- [`web-game-spec.md`](assets/examples/web-game-spec.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ถามฉันทีละ 1 คำถาม เพื่อช่วย Reflection หลังทำเกม
+รวม 5 คำถาม
+เน้น:
+- ฉันเรียนรู้อะไร
+- AI ช่วยตรงไหน
+- AI ทำผิดตรงไหน
+- ฉันแก้อะไรเอง
+- ฉันจะสอนต่ออย่างไร
+
+บริบท: ฉันเพิ่งสร้างเกม AI Safety Quest ตาม web-game-spec.md และทดลองบนมือถือแล้ว
+```
+
 
 ---
 

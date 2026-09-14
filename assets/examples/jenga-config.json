@@ -1,0 +1,11 @@
+{
+  "gameTitle": "Eco Jenga Challenge",
+  "topic": "การคัดแยกขยะ",
+  "maxMisses": 3,
+  "controls": {
+    "pinch": "pick",
+    "wristRotate": "rotate",
+    "release": "drop"
+  },
+  "fallback": ["mouse", "touch"]
+}

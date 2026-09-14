@@ -29,6 +29,40 @@ PRIVACY:
 ไม่บันทึกหรืออัปโหลด Camera Stream
 ```
 
+#### 📦 Assets ที่ใช้
+- [`ar-verb-words.json`](assets/examples/ar-verb-words.json)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ROLE:
+คุณคือ Web AR Game Designer และครู
+
+สร้างเกม “AR Learning Hunt”
+ด้วย HTML/CSS/JavaScript
+
+CORE:
+- getUserMedia เปิดกล้องหลังผู้ใช้กดปุ่ม
+- Camera เป็น background
+- HTML Overlay เป็นคำ/การ์ดลอย
+- Tap/Click เพื่อเลือก
+- ถูก +10
+- ผิด -5 แต่คะแนนไม่ต่ำกว่า 0
+- 10 รอบ
+- Score / Round / Feedback
+- Start / Restart
+- Responsive
+- Camera denied → fallback background
+
+PRIVACY:
+ไม่บันทึกหรืออัปโหลด Camera Stream
+
+CONTENT:
+ใช้ correct/decoys จากไฟล์ ar-verb-words.json ที่แนบมา
+กลุ่มเป้าหมาย: ป.5
+ครบ 10 รอบและแตะ “นอน” ต้องได้ +10
+```
+
+
 ## Card AR02 — Gesture AR: Pinch to Select
 ```text
 ต่อยอดเกม AR เดิมด้วย MediaPipe Hands
@@ -42,6 +76,26 @@ Gesture:
 - ถ้า Tracking หลุดชั่วคราว เกมต้องไม่ Reset
 - มี Mouse/Touch fallback
 ```
+
+#### 📦 Assets ที่ใช้
+- [`ar-verb-words.json`](assets/examples/ar-verb-words.json)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ต่อยอดเกม AR เดิมด้วย MediaPipe Hands
+
+Gesture:
+- Pinch = เลือกวัตถุ
+- Open Palm = ยืนยัน
+- แสดง Cursor ที่ตำแหน่งมือ
+- แสดง Tracking Status
+- ใช้ Smoothing ลดมือสั่น
+- ถ้า Tracking หลุดชั่วคราว เกมต้องไม่ Reset
+- มี Mouse/Touch fallback
+
+นำไปใช้กับ AR Word Hunt คำกริยา โดยข้อมูลคำศัพท์อ่านจาก ar-verb-words.json และ Pinch วัตถุเพื่อเลือกคำ
+```
+
 
 ## Card AR03 — AR ยิงธนูสู้คำกริยา (Advanced)
 ```text
@@ -75,6 +129,44 @@ UX:
 - Restart
 ```
 
+#### 📦 Assets ที่ใช้
+- [`ar-verb-words.json`](assets/examples/ar-verb-words.json)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+สร้างเกม AR “ยิงธนูสู้คำกริยา”
+
+Technology:
+- HTML/CSS/JavaScript
+- Three.js
+- MediaPipe Hands
+- Web Audio API
+
+Control:
+- มือซ้าย = ตำแหน่งคันธนู
+- มือขวากำ = เริ่มดึง
+- แบมือ = ปล่อยลูกธนู
+- แรงยิงสัมพันธ์กับระยะดึง
+
+Game:
+- ผลไม้ 3 ลูกต่อรอบ
+- คำกริยา 1
+- คำนามหลอก 2
+- ยิงกริยา +10
+- ยิงคำหลอก -5
+- คะแนนไม่ต่ำกว่า 0
+- มี HUD, เวลา, รอบ, Tracking status
+
+UX:
+- ตัวอักษรใหญ่
+- Feedback ไม่บังผู้เล่นนาน
+- ปุ่มสลับมือ
+- Restart
+
+ใช้รายการคำกริยาและคำหลอกจาก ar-verb-words.json เกมทั้งหมด 15 รอบ และต้องมี Mouse/Touch fallback สำหรับทดสอบ
+```
+
+
 ## Card AR04 — AR Science Classification
 ```text
 เปลี่ยน AR Learning Hunt เป็นเกมวิทยาศาสตร์
@@ -91,6 +183,26 @@ Decoys: [...]
 - จบเกมมี Reflection 2 คำถาม
 ```
 
+#### 📦 Assets ที่ใช้
+- [`science-classification.json`](assets/examples/science-classification.json)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+เปลี่ยน AR Learning Hunt เป็นเกมวิทยาศาสตร์
+
+หัวข้อ: สัตว์มีกระดูกสันหลัง
+Target category: สัตว์มีกระดูกสันหลัง
+Correct items: ใช้รายการจาก science-classification.json
+Decoys: ใช้รายการจาก science-classification.json
+
+เมื่อผู้เรียนเลือก:
+- แสดง Correct / Incorrect
+- อธิบายเหตุผล 1 ประโยค
+- เก็บคะแนน
+- จบเกมมี Reflection 2 คำถาม
+```
+
+
 ## Card AR05 — AR Cyber Decision
 ```text
 สร้าง AR Decision Hunt เรื่อง Cyber Safety
@@ -106,6 +218,28 @@ Email, QR, Password, Link, Attachment, Login Page
 ผู้เล่นแตะคำตอบ
 แล้วแสดง Red Flags ที่ควรสังเกต
 ```
+
+#### 📦 Assets ที่ใช้
+- [`sample-phishing-email.md`](assets/examples/sample-phishing-email.md)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+สร้าง AR Decision Hunt เรื่อง Cyber Safety
+
+การ์ดลอย:
+- SAFE
+- SUSPICIOUS
+- DANGEROUS
+
+สถานการณ์:
+Email, QR, Password, Link, Attachment, Login Page
+
+ผู้เล่นแตะคำตอบ
+แล้วแสดง Red Flags ที่ควรสังเกต
+
+ใช้ sample-phishing-email.md เป็นสถานการณ์รอบแรก และให้ผู้เล่นหา Red Flags: domain สะกดผิด, ความเร่งด่วน, ขอ Password/OTP
+```
+
 
 ## Card AR06 — Pinch Drag Learning Objects
 ```text
@@ -128,6 +262,31 @@ Use case:
 - Touch/Mouse fallback
 ```
 
+#### 📦 Assets ที่ใช้
+- [`science-classification.json`](assets/examples/science-classification.json)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+สร้าง AR Drag & Drop ผ่านกล้อง
+
+MediaPipe Hands:
+- Pinch = จับ
+- Move = ลาก
+- Release = วาง
+
+Use case:
+ลาก ชื่อสัตว์จาก science-classification.json ไปลง มีกระดูกสันหลัง / ไม่มีกระดูกสันหลัง
+
+ต้องมี:
+- Coordinate mapping
+- Snap target
+- Wrong → return
+- Correct → lock
+- Score
+- Touch/Mouse fallback
+```
+
+
 ## Card AR07 — 3D Jenga Gesture Challenge
 ```text
 สร้าง 3D Web Game เรียงบล็อก
@@ -145,6 +304,28 @@ Game:
 - แสดงคะแนนและความสูง
 - Mouse fallback
 ```
+
+#### 📦 Assets ที่ใช้
+- [`jenga-config.json`](assets/examples/jenga-config.json)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+สร้าง 3D Web Game เรียงบล็อก
+ใช้ Three.js + Physics + MediaPipe Hands
+
+Gesture:
+- Pinch = หยิบบล็อก
+- บิดข้อมือ = หมุน
+- Release = วาง
+
+Game:
+- วางบล็อกซ้อนให้สูง
+- Gravity / Collision
+- บล็อกตกเกิน 3 = Game Over
+- แสดงคะแนนและความสูง
+- Mouse fallback
+```
+
 
 ## Card AR08 — AR Debug Prompt
 ```text
@@ -169,3 +350,31 @@ Game:
 - โค้ดส่วนที่ต้องเปลี่ยน
 - Test cases
 ```
+
+#### 📦 Assets ที่ใช้
+- [`sample-buggy-game.js`](assets/examples/sample-buggy-game.js)
+
+#### ✅ ตัวอย่าง Prompt พร้อมใช้
+```text
+ตรวจโค้ด AR ต่อไปนี้:
+ใช้โค้ดจากไฟล์ sample-buggy-game.js ที่แนบมา ปัญหาที่พบคือสามารถกดคำตอบซ้ำ คะแนนติดลบ และยังไม่มีเงื่อนไขจบเกม
+
+ทดสอบเชิงเหตุผล:
+1. Camera permission
+2. Pointer/Touch
+3. MediaPipe loading
+4. Coordinate mapping
+5. State lock
+6. Double click/tap
+7. Score update
+8. Auto next
+9. Mobile viewport
+10. Camera denied fallback
+
+ส่ง:
+- Root cause
+- Fix
+- โค้ดส่วนที่ต้องเปลี่ยน
+- Test cases
+```
+

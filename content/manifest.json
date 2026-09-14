@@ -71,6 +71,21 @@
     ]
   },
   {
+    "title": "PROMPTS — Marketing & Brand Strategy",
+    "file": "content/prompt-marketing-brand-pack.md",
+    "icon": "fa-chart-line",
+    "category": "Business",
+    "tags": [
+      "Marketing",
+      "Research",
+      "Brand",
+      "Persona",
+      "USP",
+      "Content",
+      "Business"
+    ]
+  },
+  {
     "title": "DAY 0 — Facilitator Guide",
     "file": "content/facilitator-guide.md",
     "icon": "fa-person-chalkboard",
@@ -78,6 +93,18 @@
     "tags": [
       "Trainer",
       "Workshop"
+    ]
+  },
+  {
+    "title": "CHECKLIST — AI Safety / Ethics / PDPA",
+    "file": "content/safety-checklist.md",
+    "icon": "fa-shield-halved",
+    "category": "Safety",
+    "tags": [
+      "Safety",
+      "Ethics",
+      "PDPA",
+      "Privacy"
     ]
   },
   {

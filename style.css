@@ -1128,3 +1128,52 @@ img, video, iframe { max-width: 100%; }
   .gemini-steps>div:last-child{grid-column:auto}
   #gemini-ar-prompt{min-height:520px;font-size:.8rem}
 }
+
+
+/* ---------- v4.4 Full Production: Marketing & Markdown Assets ---------- */
+.marketing-home-card{
+  grid-column:1/-1;
+  background:linear-gradient(135deg,#ffffff 0%,#f3f8ff 55%,#eefbf7 100%);
+}
+.marketing-flow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:16px 0 12px;
+}
+.marketing-flow span{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:8px 12px;
+  font-weight:700;
+  color:#183b61;
+  font-size:.82rem;
+}
+.marketing-flow i{color:var(--accent);font-size:.78rem}
+.markdown-body img{
+  display:block;
+  max-width:min(100%,860px);
+  height:auto;
+  margin:18px auto;
+  border-radius:16px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+}
+.markdown-body a{
+  overflow-wrap:anywhere;
+}
+.markdown-body blockquote{
+  border-left:4px solid var(--primary);
+  background:#f7fbff;
+  padding:12px 16px;
+  margin:14px 0;
+  border-radius:0 12px 12px 0;
+  color:#425a73;
+}
+@media(max-width:760px){
+  .marketing-flow{gap:7px}
+  .marketing-flow i{display:none}
+  .marketing-flow span{font-size:.76rem;padding:7px 10px}
+}
