@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <rect width="900" height="500" fill="#eef6ff"/>
+  <rect x="50" y="55" width="800" height="390" rx="26" fill="#fff" stroke="#cbd5e1" stroke-width="5"/>
+  <rect x="110" y="105" width="310" height="180" rx="14" fill="#163a63"/>
+  <text x="265" y="180" text-anchor="middle" font-size="34" fill="#fff" font-family="Arial">2 + 2 = 5</text>
+  <text x="265" y="230" text-anchor="middle" font-size="22" fill="#93c5fd" font-family="Arial">AI-generated lesson</text>
+  <circle cx="610" cy="185" r="72" fill="#fde68a"/>
+  <circle cx="585" cy="170" r="7"/><circle cx="636" cy="170" r="7"/>
+  <path d="M585 215 Q610 185 638 214" fill="none" stroke="#1f2937" stroke-width="7"/>
+  <text x="450" y="375" text-anchor="middle" font-size="28" fill="#334155" font-family="Arial">Spot the AI mistake</text>
+</svg>

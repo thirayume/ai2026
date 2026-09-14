@@ -1,166 +1,144 @@
 <!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Workshop Hub & AI Bug Spotter (v2.0 Final)</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="#153a63" name="theme-color"/>
+<meta content="AI Workshop Hub สำหรับครูและนักเรียนแกนนำ พร้อม Day 0, Prompt Library, AI Bug Spotter และ AR Lab" name="description"/>
+<title>AI Workshop Hub — Day 0 Creator &amp; AR Lab</title>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<script defer="" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" rel="stylesheet">
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script defer="" src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script defer="" src="app.js"></script>
 </head>
-<body>
-  <div id="toast" class="toast">คัดลอกสำเร็จ!</div>
-  <div id="feedback-modal" class="modal-backdrop hidden">
-    <div class="modal-card">
-      <div id="modal-icon" class="modal-icon"></div>
-      <h3 id="modal-title">ผลการตรวจสอบ</h3>
-      <p id="modal-explanation" class="modal-text"></p>
-      <div id="modal-points" class="modal-points"></div>
-      <button class="btn btn-primary" id="btn-modal-next">ข้อถัดไป <i class="fa-solid fa-arrow-right"></i></button>
-    </div>
-  </div>
-  <header class="navbar">
-    <div class="logo"><i class="fa-solid fa-brain-circuit"></i> <span>AI Workshop Hub <span class="badge-tag">v2.0 Final</span></span></div>
-    <nav>
-      <button class="nav-btn active" data-target="prompts-view"><i class="fa-solid fa-book-bookmark"></i> คลัง Prompt & เนื้อหา</button>
-      <button class="nav-btn" data-target="game-view"><i class="fa-solid fa-gamepad"></i> เกมจับผิด AI (Spot the AI Bug)</button>
-    </nav>
-  </header>
-  <main class="container">
-    <section id="prompts-view" class="view active">
-      <div class="sidebar-layout">
-        <aside class="sidebar">
-          <h3>หัวข้อหลักสูตร</h3>
-          <ul class="doc-list">
-            <li class="doc-item active" data-file="content/day1-education.md"><i class="fa-solid fa-chalkboard-user"></i> วันที่ 15: AI เพื่อการศึกษา</li>
-            <li class="doc-item" data-file="content/day2-workplace.md"><i class="fa-solid fa-briefcase"></i> วันที่ 16: AI ทำงานประจำ</li>
-            <li class="doc-item" data-file="content/safety-checklist.md"><i class="fa-solid fa-shield-halved"></i> ข้อพึงระวัง & PDPA</li>
-          </ul>
-          <div class="quick-filter"><h4>ค้นหาด่วน</h4><input type="text" id="prompt-search" placeholder="พิมพ์ค้นหา เช่น ครู, SAR, สรุป..." /></div>
-          <div class="category-filters">
-            <h4>กรองตามกลุ่ม</h4>
-            <button class="chip-filter active" data-filter="all">ทั้งหมด</button>
-            <button class="chip-filter" data-filter="หมวด A">กลุ่ม A</button>
-            <button class="chip-filter" data-filter="หมวด B">กลุ่ม B</button>
-            <button class="chip-filter" data-filter="หมวด C">กลุ่ม C</button>
-          </div>
-        </aside>
-        <article class="content-area">
-          <div class="content-header">
-            <div class="document-breadcrumb"><span id="doc-breadcrumb-title">วันที่ 15: AI เพื่อการศึกษา</span></div>
-            <div class="action-buttons"><button id="reload-btn"><i class="fa-solid fa-arrows-rotate"></i> รีเฟรชข้อมูลสด</button></div>
-          </div>
-          <div id="loading-indicator" class="loading-box hidden"><i class="fa-solid fa-circle-notch fa-spin"></i> กำลังโหลดข้อมูลล่าสุด...</div>
-          <div id="markdown-output" class="markdown-body"></div>
-        </article>
-      </div>
-    </section>
-    <section id="game-view" class="view">
-      <div class="game-lobby card" id="game-lobby">
-        <div class="lobby-badge"><i class="fa-solid fa-shield-virus"></i> AI Quality Audit Workshop</div>
-        <h2>กิจกรรม: นักสืบจับผิด AI (Spot the AI Bug)</h2>
-        <p class="subtitle">ฝึกทักษะการตรวจสอบคำตอบ Hallucination, ข้อเท็จจริงที่บิดเบือน, PDPA และการคำนวณที่ผิดพลาดจาก AI</p>
-        <div class="mode-selection">
-          <div class="mode-card" id="btn-mode-single">
-            <i class="fa-solid fa-user-astronaut"></i>
-            <h3>โหมดฝึกฝนเดี่ยว (Single Player)</h3>
-            <p>ฝึกฝนจับผิดตามความเร็วตนเอง มีเฉลยและเหตุผลประกอบทุกข้อ</p>
-          </div>
-          <div class="mode-card" id="btn-mode-multi">
-            <i class="fa-solid fa-tower-broadcast"></i>
-            <h3>โหมดห้องเรียนสด (Multiplayer Room)</h3>
-            <p>วิทยากรเปิดห้อง ผู้เรียนสแกน QR Code แข่งขันพร้อมกันทั้งห้อง</p>
-          </div>
-        </div>
-        <div id="single-setup" class="setup-box hidden">
-          <label>กรอกชื่อหรือรหัสของคุณ:</label>
-          <input type="text" id="player-name-single" placeholder="เช่น อ.วิภา, ครูหนึ่ง, บัญชี 01" />
-          <button class="btn btn-primary" id="btn-start-single"><i class="fa-solid fa-play"></i> เริ่มเล่นเกมทันที</button>
-        </div>
-        <div id="multi-setup" class="setup-box hidden">
-          <div class="grid-2">
-            <div class="sub-card">
-              <div class="role-badge"><i class="fa-solid fa-chalkboard-user"></i> สำหรับวิทยากร / ผู้คุมห้อง</div>
-              <button class="btn btn-accent full-width" id="btn-create-room"><i class="fa-solid fa-plus-circle"></i> เปิดห้องกิจกรรมใหม่</button>
-              <div id="room-info" class="hidden" style="margin-top: 15px;">
-                <p style="font-weight:600; margin-bottom: 4px;">รหัสห้อง (Room PIN):</p>
-                <div class="copy-box"><input type="text" id="created-room-id" readonly /><button id="btn-copy-link" class="btn btn-small"><i class="fa-regular fa-copy"></i> คัดลอกลิงก์</button></div>
-                <div class="qr-container"><p class="qr-label">สแกน QR Code เพื่อเข้าร่วมห้องเรียนสด:</p><div id="qrcode-box"></div></div>
-                <div class="lobby-player-list"><h5>ผู้เข้าร่วมในห้อง (<span id="player-count">0</span> คน):</h5><ul id="connected-players-list"></ul></div>
-                <button class="btn btn-primary full-width" id="btn-host-start-game"><i class="fa-solid fa-flag-checkered"></i> เริ่มเกมพร้อมกันทั้งห้อง</button>
-              </div>
-            </div>
-            <div class="sub-card">
-              <div class="role-badge" style="background:#fef3c7; color:#b45309;"><i class="fa-solid fa-user-graduate"></i> สำหรับผู้เข้าอบรม (Join)</div>
-              <label>ชื่อผู้เรียน / กลุ่ม:</label>
-              <input type="text" id="player-name-multi" placeholder="ใส่ชื่อหรือชื่อเล่น" style="margin-bottom: 12px; width: 100%;" />
-              <label>PIN ห้องกิจกรรม:</label>
-              <input type="text" id="join-room-id" placeholder="กรอก ROOM-XXXX หรือสแกน QR" style="margin-bottom: 12px; width: 100%;" />
-              <button class="btn btn-primary full-width" id="btn-join-room"><i class="fa-solid fa-right-to-bracket"></i> เข้าสู่ห้องเรียน</button>
-              <p id="join-status" class="status-msg"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="game-play" class="card hidden">
-        <div class="game-header">
-          <div><span class="badge" id="hud-mode">Single Player</span> <span class="badge" id="hud-question-index">ข้อที่ 1/8</span></div>
-          <div class="hud-timer"><i class="fa-regular fa-clock"></i> เหลือเวลา: <span id="time-left">30</span> วินาที</div>
-          <div class="hud-score">คะแนน: <span id="current-score">0</span></div>
-        </div>
-        <div class="progress-bar-container"><div id="timer-bar" class="progress-bar-fill"></div></div>
-        <div class="scenario-box">
-          <div class="scenario-meta"><span class="category-pill" id="scenario-title">หมวดหมู่</span></div>
-          <div class="prompt-instruction" id="scenario-prompt">คำสั่ง Prompt: ...</div>
-          <div class="ai-generated-box">
-            <div class="ai-tag"><i class="fa-solid fa-robot"></i> ข้อความที่สร้างจาก AI:</div>
-            <p id="ai-response-text">ข้อความ...</p>
-          </div>
-        </div>
-        <div class="question-options">
-          <h4>จุดผิดพลาดสำคัญที่สุดของคำตอบ AI ชุดนี้คือข้อใด?</h4>
-          <div class="options-grid" id="options-container"></div>
-        </div>
-      </div>
-      <div id="game-results" class="card hidden">
-        <div class="result-header text-center">
-          <div class="trophy-icon">🏆</div>
-          <h2>สรุปผลกิจกรรมตรวจสอบ AI</h2>
-          <div class="my-final-score">คะแนนของคุณ: <span id="final-score-val">0</span> คะแนน</div>
-        </div>
-        <div class="leaderboard-section">
-          <div class="section-title">
-            <h3><i class="fa-solid fa-crown" style="color:#eab308;"></i> 5 อันดับแรก (Top 5 Leaderboard)</h3>
-            <span class="badge" id="live-badge">Live Realtime</span>
-          </div>
-          <table class="scoreboard-table" id="top5-table">
-            <thead><tr><th style="width: 80px;">อันดับ</th><th>ชื่อผู้เข้าอบรม</th><th>คะแนนสุทธิ</th><th>สถานะ</th></tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div class="full-scoreboard-section">
-          <button class="btn btn-secondary full-width" id="btn-toggle-full-board"><i class="fa-solid fa-list-ol"></i> แสดง Full Scoreboard ทั้งหมด</button>
-          <div id="full-board-container" class="hidden" style="margin-top: 15px;">
-            <table class="scoreboard-table" id="full-table">
-              <thead><tr><th style="width: 80px;">อันดับ</th><th>ชื่อผู้เข้าอบรม</th><th>คะแนนสุทธิ</th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-        <div class="result-actions">
-          <button class="btn btn-primary" id="btn-play-again"><i class="fa-solid fa-arrow-rotate-left"></i> กลับไปหน้าแรกกิจกรรม</button>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script src="app.js"></script>
+<body><a class="skip-link" href="#main-content">ข้ามไปยังเนื้อหาหลัก</a>
+<div aria-live="polite" class="toast" id="toast" role="status">สำเร็จ</div>
+<div aria-labelledby="modal-title" aria-modal="true" class="modal-backdrop hidden" id="feedback-modal" role="dialog">
+<div class="modal-card">
+<div class="modal-icon" id="modal-icon"></div>
+<h3 id="modal-title">ผลการตรวจสอบ</h3>
+<p class="modal-text" id="modal-explanation"></p>
+<div class="modal-points" id="modal-points"></div>
+<button class="btn btn-primary" id="btn-modal-next">ข้อถัดไป <i class="fa-solid fa-arrow-right"></i></button>
+</div>
+</div>
+<header class="navbar">
+<button aria-label="กลับหน้า Day 0" class="brand-button" data-target="home-view">
+<i class="fa-solid fa-brain"></i>
+<span class="brand-name">AI Workshop Hub <span class="badge-tag">Day 0 · Responsive v4</span></span>
+</button>
+<nav aria-label="เมนูหลัก" class="top-nav">
+<button aria-label="Day 0" class="nav-btn active" data-target="home-view"><i class="fa-solid fa-rocket"></i><span class="nav-label">Day 0</span></button>
+<button aria-label="คลังเนื้อหา" class="nav-btn" data-target="prompts-view"><i class="fa-solid fa-book-bookmark"></i><span class="nav-label">คลังเนื้อหา</span></button>
+<button aria-label="AI Bug Spotter" class="nav-btn" data-target="game-view"><i class="fa-solid fa-gamepad"></i><span class="nav-label">AI Bug Spotter</span></button>
+<button aria-label="AR / Game Lab" class="nav-btn" data-target="lab-view"><i class="fa-solid fa-vr-cardboard"></i><span class="nav-label">AR / Game Lab</span></button>
+</nav>
+</header>
+<main class="container" id="main-content">
+<section class="view active" id="home-view">
+<div class="hero-panel">
+<div class="hero-copy">
+<span class="eyebrow"><i class="fa-solid fa-school"></i> Train-the-Trainer · ครู + นักเรียนแกนนำ</span>
+<h1>DAY 0 — AI Creator &amp; AR Game Workshop</h1>
+<p>ระบบ Workshop 4 ชั่วโมงจากโครงเดิม เพิ่ม Dashboard, Prompt Library, AI Fact-check Game, AR Lab, ตัวอย่างพร้อมใช้ และระบบติดตาม Mission บนเครื่องผู้เรียน</p>
+<div class="hero-actions">
+<button class="btn btn-primary btn-lg quick-nav" data-open-doc="content/day0.md" data-target="prompts-view"><i class="fa-solid fa-book-open"></i> เปิดคู่มือ Day 0</button>
+<button class="btn btn-accent btn-lg quick-nav" data-target="lab-view"><i class="fa-solid fa-camera"></i> ทดลอง AR Lab</button>
+</div>
+<div class="hero-meta"><span>⏱ 4 ชั่วโมง</span><span>🧩 6 Missions</span><span>🎮 Web + AR</span><span>📱 Responsive</span><span>🌐 GitHub Pages</span></div>
+</div>
+<div class="hero-media">
+<video autoplay="" loop="" muted="" playsinline="" poster="assets/day0/01-workshop-map.png" preload="metadata" src="assets/day0/workshop-intro.mp4"></video>
+</div>
+</div>
+<div class="section-heading">
+<div><span class="eyebrow">WORKSHOP MAP</span><h2>เส้นทาง 4 ชั่วโมง</h2></div>
+<div class="progress-summary"><strong id="mission-progress-text">0/6 Missions</strong><div class="mini-progress"><span id="mission-progress-bar"></span></div></div>
+</div>
+<div class="timeline-grid" id="mission-grid">
+<article class="mission-card" data-mission="1"><span class="mission-time">00:00–00:20</span><div class="mission-num">01</div><h3>AI Safety</h3><p>AI คืออะไร, Hallucination, Privacy, ตรวจสอบก่อนเชื่อ</p><label><input class="mission-check" data-mission="1" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
+<article class="mission-card" data-mission="2"><span class="mission-time">00:20–01:00</span><div class="mission-num">02</div><h3>Prompt Power</h3><p>R-C-T-F-C และการปรับ Prompt ให้เหมาะกับประถม/มัธยม</p><label><input class="mission-check" data-mission="2" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
+<article class="mission-card" data-mission="3"><span class="mission-time">01:00–01:40</span><div class="mission-num">03</div><h3>Visual Story</h3><p>Character Continuity → Storyboard → Image/Motion Prompt</p><label><input class="mission-check" data-mission="3" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
+<article class="mission-card" data-mission="4"><span class="mission-time">01:50–02:35</span><div class="mission-num">04</div><h3>Web Game</h3><p>Learning Goal → Game Loop → Score → Feedback → Test</p><label><input class="mission-check" data-mission="4" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
+<article class="mission-card" data-mission="5"><span class="mission-time">02:35–03:25</span><div class="mission-num">05</div><h3>AR Challenge</h3><p>Camera + Overlay + Interaction; Advanced: Gesture/Three.js</p><label><input class="mission-check" data-mission="5" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
+<article class="mission-card" data-mission="6"><span class="mission-time">03:25–04:00</span><div class="mission-num">06</div><h3>Test &amp; Teach Back</h3><p>Review, Debug, Showcase และสอนต่อด้วยสูตร 5 นาที</p><label><input class="mission-check" data-mission="6" type="checkbox"/> ทำ Mission นี้แล้ว</label></article>
+</div>
+<div class="dashboard-grid">
+<article class="card asset-card">
+<div class="card-title-row"><h3><i class="fa-solid fa-diagram-project"></i> Prompt Formula</h3><button class="btn btn-secondary btn-small quick-nav" data-open-doc="content/prompt-cards.md" data-target="prompts-view">Prompt Cards</button></div>
+<img alt="Prompt formula R-C-T-F-C" src="assets/day0/02-prompt-formula.png"/>
+</article>
+<article class="card asset-card">
+<div class="card-title-row"><h3><i class="fa-solid fa-shield-halved"></i> AI Safety Check</h3><button class="btn btn-secondary btn-small quick-nav" data-target="game-view">เล่น Bug Spotter</button></div>
+<img alt="AI safety checklist" src="assets/day0/05-ai-safety-check.png"/>
+</article>
+</div>
+</section>
+<section class="view" id="prompts-view">
+<div class="sidebar-layout">
+<aside class="sidebar">
+<div class="sidebar-title"><h3>คลังเนื้อหา</h3><span class="soft-badge">Dynamic Markdown</span></div>
+<ul class="doc-list" id="dynamic-doc-list"><li class="loading-list">กำลังโหลด...</li></ul>
+<div class="quick-filter"><h4>ค้นหาในเอกสาร</h4><input id="prompt-search" placeholder="เช่น AR, Prompt, Safety..." type="search"/></div>
+<div class="category-filters" id="category-filters"><h4>กรองหัวข้อ</h4><button class="chip-filter active" data-filter="all">ทั้งหมด</button><button class="chip-filter" data-filter="Mission">Mission</button><button class="chip-filter" data-filter="Prompt">Prompt</button><button class="chip-filter" data-filter="AR">AR</button><button class="chip-filter" data-filter="Safety">Safety</button></div>
+</aside>
+<article class="content-area">
+<div class="content-header">
+<div><span class="soft-badge">Markdown</span><div class="document-breadcrumb" id="doc-breadcrumb-title">กำลังโหลด...</div></div>
+<div class="action-buttons"><button class="btn btn-secondary" id="reload-btn"><i class="fa-solid fa-arrows-rotate"></i> รีเฟรช</button><button class="btn btn-secondary" id="copy-doc-link"><i class="fa-solid fa-link"></i> ลิงก์เอกสาร</button></div>
+</div>
+<div class="loading-box hidden" id="loading-indicator"><i class="fa-solid fa-circle-notch fa-spin"></i> กำลังโหลดข้อมูล...</div>
+<div class="markdown-body" id="markdown-output"></div>
+</article>
+</div>
+</section>
+<section class="view" id="game-view">
+<div class="game-lobby card" id="game-lobby">
+<div class="lobby-badge"><i class="fa-solid fa-magnifying-glass"></i> AI Photo Hunt &amp; Fact Checking</div>
+<h2>AI Bug Spotter</h2>
+<p class="subtitle">กิจกรรม Kahoot-style จากระบบเดิม เพิ่มตัวอย่าง Hallucination, Privacy, Prompt และ Phishing พร้อมใช้ใน Day 0</p>
+<div class="mode-selection">
+<button class="mode-card" id="btn-mode-single"><i class="fa-solid fa-user-astronaut"></i><h3>Single Player</h3><p>เหมาะกับ Demo และการทดลองรายบุคคล</p></button>
+<button class="mode-card" id="btn-mode-multi"><i class="fa-solid fa-tower-broadcast"></i><h3>Live Classroom</h3><p>Host เปิดห้องและให้ผู้เรียน Join ผ่าน PIN/QR</p></button>
+</div>
+<div class="setup-box hidden" id="single-setup"><label for="player-name-single">ชื่อหรือรหัสผู้เล่น</label><input id="player-name-single" placeholder="ชื่อผู้เล่น..." type="text"><button class="btn btn-primary" id="btn-start-single"><i class="fa-solid fa-play"></i> เริ่มเกม</button></input></div>
+<div class="setup-box hidden" id="multi-setup">
+<div class="grid-2">
+<div class="sub-card"><div class="role-badge"><i class="fa-solid fa-chalkboard-user"></i> Host / วิทยากร</div><button class="btn btn-accent full-width" id="btn-create-room"><i class="fa-solid fa-plus-circle"></i> เปิดห้อง</button><div class="hidden room-info" id="room-info"><p><strong>Room PIN</strong></p><div class="copy-box"><input id="created-room-id" readonly="" type="text"><button class="btn btn-small btn-secondary" id="btn-copy-link"><i class="fa-regular fa-copy"></i> Copy Link</button></input></div><div class="qr-container"><p class="qr-label">QR เข้าห้อง</p><div id="qrcode-box"></div></div><div class="lobby-player-list"><h5>ผู้เล่น (<span id="player-count">0</span>)</h5><ul id="connected-players-list"></ul></div><button class="btn btn-primary full-width" id="btn-host-start-game"><i class="fa-solid fa-flag-checkered"></i> เริ่มพร้อมกัน</button></div></div>
+<div class="sub-card"><div class="role-badge role-student"><i class="fa-solid fa-user-graduate"></i> Join / ผู้เข้าอบรม</div><label>ชื่อผู้เล่น</label><input id="player-name-multi" placeholder="ชื่อเล่น" type="text"><label>PIN ห้อง</label><input id="join-room-id" placeholder="PIN-XXXX" type="text"><button class="btn btn-primary full-width" id="btn-join-room"><i class="fa-solid fa-right-to-bracket"></i> เข้าสู่เกม</button><p class="status-msg" id="join-status"></p></input></input></div>
+</div>
+<p class="notice"><i class="fa-solid fa-circle-info"></i> Live Classroom ใช้ PeerJS สำหรับ signaling/peer connection จึงต้องมีอินเทอร์เน็ต แม้เว็บหลักจะเป็น Static GitHub Pages</p>
+</div>
+</div>
+<div class="card hidden" id="game-play">
+<div class="game-header"><div><span class="badge" id="hud-mode">Single Player</span> <span class="badge" id="hud-question-index">ข้อที่ 1/x</span></div><div class="hud-timer"><i class="fa-regular fa-clock"></i> <span id="time-left">20</span> วินาที</div><div class="hud-score">คะแนน: <span id="current-score">0</span></div></div>
+<div class="progress-bar-container"><div class="progress-bar-fill" id="timer-bar"></div></div>
+<div class="scenario-box text-center"><div class="scenario-meta text-left"><span class="category-pill" id="scenario-title">หมวดหมู่</span></div><h3 class="prompt-instruction" id="scenario-prompt">โจทย์คำถาม...</h3><img alt="ภาพโจทย์สำหรับ AI Bug Spotter" class="hidden scenario-image" id="scenario-image" src=""><div class="ai-generated-box text-left hidden" id="text-scenario-box"><div class="ai-tag"><i class="fa-solid fa-robot"></i> ข้อมูลที่ AI สร้าง/ประมวลผล</div><p id="ai-response-text">ข้อความ...</p></div></img></div>
+<div class="question-options"><div class="kahoot-grid" id="options-container"></div></div>
+</div>
+<div class="card hidden" id="game-results"><div class="result-header text-center"><div class="trophy-icon">🏆</div><h2>สรุปผลการแข่งขัน</h2><div class="my-final-score">คะแนนของคุณ: <span id="final-score-val">0</span></div></div><div class="leaderboard-section"><table class="scoreboard-table" id="top5-table"><thead><tr><th>อันดับ</th><th>ชื่อผู้เล่น</th><th>คะแนน</th></tr></thead><tbody></tbody></table></div><div class="result-actions"><button class="btn btn-primary" id="btn-play-again"><i class="fa-solid fa-arrow-rotate-left"></i> กลับ Lobby</button></div></div>
+</section>
+<section class="view" id="lab-view">
+<div class="section-heading"><div><span class="eyebrow">DAY 0 LAB</span><h2>ตัวอย่างพร้อมทดลอง</h2><p class="subtitle">ใช้ Demo สำเร็จก่อน แล้วให้ทีมแก้ Content/Rule/UI เพื่อสร้างเวอร์ชันของตนเอง</p></div></div>
+<div class="lab-grid">
+<article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-list-check"></i></div><h3>Interactive Quiz</h3><p>ตัวอย่างเกม AI Safety แบบ HTML ไฟล์เดียว เหมาะกับ Mission 4</p><div class="lab-actions"><button class="btn btn-primary open-demo" data-demo="examples/interactive-quiz.html" data-title="Interactive Quiz">เปิดในหน้านี้</button><a class="btn btn-secondary" href="examples/interactive-quiz.html" rel="noopener" target="_blank">เปิด Tab ใหม่</a></div></article>
+<article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-camera-retro"></i></div><h3>AR Word Hunt</h3><p>Camera background + HTML overlay + Tap/Score เป็น Core AR ที่ทำได้ใน 4 ชั่วโมง</p><div class="lab-actions"><button class="btn btn-accent open-demo" data-demo="examples/ar-word-hunt.html" data-title="AR Word Hunt">เปิดในหน้านี้</button><a class="btn btn-secondary" href="examples/ar-word-hunt.html" rel="noopener" target="_blank">เปิด Tab ใหม่</a></div></article>
+<article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-code"></i></div><h3>Advanced Challenge</h3><p>ต่อยอดด้วย MediaPipe Hands + Three.js + Gesture Control ตาม Prompt ใน Day 0</p><div class="lab-actions"><button class="btn btn-secondary quick-nav" data-find="Advanced Challenge" data-open-doc="content/day0.md" data-target="prompts-view">เปิด Prompt</button></div></article>
+</div>
+<div class="demo-stage hidden" id="demo-stage"><div class="demo-toolbar"><div><strong id="demo-title">Demo</strong><span> · iframe sandbox (อนุญาต Camera)</span></div><button class="btn btn-secondary" id="close-demo"><i class="fa-solid fa-xmark"></i> ปิด</button></div><iframe allow="camera; microphone" id="demo-frame" loading="lazy" title="Workshop demo"></iframe></div>
+<div class="card tips-card"><h3><i class="fa-solid fa-lightbulb"></i> วิธีใช้ในห้องอบรม</h3><div class="tip-steps"><div><strong>1. Run</strong><span>เล่น Demo ก่อน</span></div><div><strong>2. Remix</strong><span>เปลี่ยนคำถาม/คำศัพท์</span></div><div><strong>3. Test</strong><span>Desktop + Mobile</span></div><div><strong>4. Explain</strong><span>อธิบาย Logic ให้เพื่อน</span></div></div></div>
+</section>
+</main>
+<footer class="footer"><span>AI Workshop Hub · Static Web for GitHub Pages</span><span id="offline-status"><i class="fa-solid fa-wifi"></i> Online</span></footer>
 </body>
 </html>

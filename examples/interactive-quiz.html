@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI Safety Quest</title>
+<style>
+:root{--ink:#122c49;--primary:#164a78;--accent:#168567;--soft:#eef5fb;--border:#d9e5f0}
+*{box-sizing:border-box}body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;min-height:100svh;color:var(--ink);background:radial-gradient(circle at 10% 0,#dcefff 0,transparent 34rem),linear-gradient(180deg,#f8fbff,#edf3f8);display:grid;place-items:center}
+.wrap{width:min(820px,100%);padding:clamp(14px,4vw,32px)}.card{background:#fffffff2;border:1px solid var(--border);border-radius:clamp(20px,4vw,30px);padding:clamp(20px,5vw,38px);box-shadow:0 24px 70px #163b6018;backdrop-filter:blur(12px)}
+h1{font-size:clamp(1.8rem,6vw,3rem);line-height:1.1;margin:0 0 14px;color:#113b64}h2{font-size:clamp(1.15rem,3.6vw,1.55rem);line-height:1.45;margin:24px 0 14px}.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.badge{background:#eef6fc;border:1px solid #d5e8f6;padding:7px 11px;border-radius:999px;color:#315b7c;font-weight:700;font-size:.82rem}
+button{width:100%;min-height:52px;padding:13px 15px;margin:6px 0;border:1px solid #dbe5ef;border-radius:14px;background:#f7fafd;color:#243a51;font-size:clamp(.92rem,2.6vw,1.05rem);font-weight:650;cursor:pointer;text-align:left;transition:.16s ease}button:hover{transform:translateY(-1px);border-color:#aac9df;background:#fff;box-shadow:0 8px 18px #173d6310}button:disabled{cursor:default;opacity:.88}.primary{background:linear-gradient(135deg,#123f6b,#1d6aa5);color:white;text-align:center;border:0;box-shadow:0 9px 24px #123f6b29}.fb{min-height:34px;padding:8px 0;font-weight:750}.good{color:#087a55}.bad{color:#b23a2b}
+@media(max-width:520px){body{place-items:start center}.wrap{padding:10px}.card{border-radius:18px;padding:18px}.top{align-items:stretch}.badge{flex:1;text-align:center}h2{margin-top:20px}button{min-height:50px;border-radius:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head><body><div class="wrap"><div class="card">
+<h1>AI Safety Quest</h1><div class="top"><span class="badge" id="progress"></span><span class="badge" id="score"></span></div>
+<h2 id="q"></h2><div id="opts"></div><div class="fb" id="fb"></div><button class="primary" id="next" hidden>ข้อต่อไป</button>
+</div></div>
+<script>
+// ครูแก้คำถามใน array นี้ได้ทันที
+const questions=[
+ {q:"ก่อนส่งข้อความให้ AI ข้อใดปลอดภัยที่สุด?",a:["ใส่รหัสผ่านเพื่อให้ AI ช่วยจำ","ใส่เลขบัตรประชาชน","ตัดข้อมูลส่วนบุคคลที่ไม่จำเป็นออก","ส่งข้อมูลทุกอย่างเพื่อให้ตอบละเอียด"],correct:2,ex:"แชร์เฉพาะข้อมูลที่จำเป็นต่อภารกิจ"},
+ {q:"ถ้า AI ให้ข้อมูลที่ดูน่าเชื่อถือมาก เราควรทำอย่างไร?",a:["เชื่อทันที","ตรวจสอบกับแหล่งที่เหมาะสม","คัดลอกส่งต่อทันที","ไม่ต้องอ่าน"],correct:1,ex:"AI อาจตอบผิด จึงควรตรวจสอบข้อเท็จจริงสำคัญ"},
+ {q:"ข้อใดเป็นการใช้ AI เพื่อช่วยคิด ไม่ใช่คิดแทนทั้งหมด?",a:["ให้ทำทุกอย่างและไม่อ่าน","ให้เสนอไอเดีย แล้วเราเลือกและปรับ","ส่งคำตอบเป็นงานทันที","ไม่ตรวจผลลัพธ์"],correct:1,ex:"ผู้เรียนควรเข้าใจและอธิบายผลงานของตนเองได้"},
+ {q:"เว็บไซต์ขอเปิดกล้องเพื่อเล่นเกม AR ควรทำอย่างไร?",a:["อนุญาตทุกเว็บ","ดูว่าจำเป็นไหมและเป็นเว็บที่เชื่อถือได้","เปิดกล้องไว้ตลอด","ส่งวิดีโอให้ทุกคน"],correct:1,ex:"สิทธิ์กล้องควรถูกใช้เท่าที่จำเป็นและผู้ใช้ต้องรู้เหตุผล"}
+];
+let i=0, score=0, locked=false;
+const $=id=>document.getElementById(id);
+function render(){
+ locked=false;$("next").hidden=true;$("fb").textContent="";$("opts").innerHTML="";
+ $("progress").textContent=`ข้อ ${i+1}/${questions.length}`;$("score").textContent=`คะแนน ${score}`;
+ $("q").textContent=questions[i].q;
+ questions[i].a.forEach((t,idx)=>{let b=document.createElement("button");b.textContent=t;b.onclick=()=>answer(idx,b);$("opts").appendChild(b)});
+}
+function answer(idx,b){
+ if(locked)return;locked=true;let ok=idx===questions[i].correct;if(ok){score+=10;$("fb").textContent="ถูกต้อง — "+questions[i].ex;$("fb").className="fb good"}else{$("fb").textContent="ลองใหม่ในครั้งหน้า — "+questions[i].ex;$("fb").className="fb bad"}
+ [...$("opts").children].forEach((x,j)=>{if(j===questions[i].correct)x.style.outline="3px solid #30a46c";x.disabled=true});
+ $("score").textContent=`คะแนน ${score}`;$("next").hidden=false;
+}
+$("next").onclick=()=>{i++;if(i<questions.length)render();else{$("q").textContent=`จบเกม — ${score}/${questions.length*10}`;$("opts").innerHTML="";$("fb").textContent="อธิบาย 1 สิ่งที่คุณจะทำก่อนเชื่อคำตอบของ AI";$("next").textContent="เล่นใหม่";$("next").hidden=false;$("next").onclick=()=>location.reload();}}
+render();
+</script></body></html>

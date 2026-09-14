@@ -1,0 +1,5 @@
+const CACHE='ai-workshop-day0-responsive-v2';
+const LOCAL=['./','./index.html','./style.css','./app.js','./content/manifest.json','./content/day0.md','./content/prompt-cards.md','./content/facilitator-guide.md','./data/spot-the-bug.json','./examples/interactive-quiz.html','./examples/ar-word-hunt.html','./assets/day0/01-workshop-map.png','./assets/day0/02-prompt-formula.png','./assets/day0/03-ar-game-loop.png','./assets/day0/04-challenge-cards.png','./assets/day0/05-ai-safety-check.png'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(LOCAL)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();if(new URL(e.request.url).origin===location.origin)caches.open(CACHE).then(c=>c.put(e.request,copy));return r;}).catch(()=>caches.match(e.request).then(r=>r||caches.match('./index.html'))));});

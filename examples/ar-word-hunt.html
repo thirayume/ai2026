@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="th">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AR Word Hunt</title>
+<style>
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0}body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#08121f;color:white;overflow:hidden;touch-action:manipulation}
+video,.fallback{position:fixed;inset:0;width:100%;height:100%;object-fit:cover}.fallback{background:radial-gradient(circle at 50% 25%,#315f8e,#0a1625 62%,#06101c)}.shade{position:fixed;inset:0;background:linear-gradient(180deg,#0007 0,#0001 30%,#0002 62%,#0009 100%)}
+.hud{position:fixed;top:max(12px,env(safe-area-inset-top));left:12px;right:12px;display:flex;gap:8px;justify-content:space-between;align-items:flex-start;z-index:3}.pill{max-width:calc(50% - 4px);background:#081625d9;border:1px solid #ffffff35;padding:9px 12px;border-radius:999px;backdrop-filter:blur(12px);font-size:clamp(.75rem,2.7vw,.95rem);font-weight:700;box-shadow:0 8px 24px #0003}
+.target{position:fixed;z-index:4;width:min(27vw,240px);min-height:58px;padding:12px 10px;border:2px solid #ffffffa0;border-radius:18px;background:#fffffff0;color:#10213b;font-weight:850;font-size:clamp(16px,3.6vw,28px);box-shadow:0 12px 32px #0006;cursor:pointer;display:grid;place-items:center;text-align:center;backdrop-filter:blur(8px);transition:transform .12s ease}.target:active{transform:scale(.96)}
+.panel{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:5;display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#07131fe6;border:1px solid #ffffff30;border-radius:18px;padding:10px;backdrop-filter:blur(14px);box-shadow:0 12px 38px #0006}.panel button{border:0;border-radius:12px;padding:11px 13px;font-size:clamp(.8rem,2.8vw,.96rem);font-weight:750;cursor:pointer}.primary{background:#fff;color:#10213b}.panel>button:not(.primary){background:#1e3b58;color:#fff}#msg{flex:1 1 250px;min-width:0;font-weight:700;font-size:clamp(.74rem,2.6vw,.9rem);line-height:1.4;color:#eaf3fb}
+@media(max-width:600px){.hud{flex-direction:column;align-items:stretch}.pill{max-width:none;width:fit-content}.pill:last-child{align-self:flex-end}.target{width:29vw;min-height:54px;padding:9px 6px;border-radius:14px}.panel{gap:6px}.panel button{flex:1}.panel #msg{flex-basis:100%;text-align:center}}
+@media(max-width:380px){.target{font-size:15px}.panel{left:8px;right:8px}.hud{left:8px;right:8px}}
+@media(max-height:500px) and (orientation:landscape){.hud{top:8px}.panel{bottom:8px;max-width:700px;margin:auto}.target{min-height:46px}.pill{padding:6px 10px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head>
+<body>
+<div class="fallback" id="fallback"></div><video id="cam" autoplay playsinline muted></video><div class="shade"></div>
+<div class="hud"><div class="pill">🎯 เลือกเฉพาะ “คำกริยา”</div><div class="pill" id="stat">รอบ 0/10 · คะแนน 0</div></div>
+<div id="arena"></div>
+<div class="panel"><button class="primary" id="start">เปิดกล้อง + เริ่มเกม</button><button id="restart">เริ่มใหม่</button><span id="msg">กล้องจะทำงานเฉพาะบนอุปกรณ์นี้และไม่ถูกบันทึกโดยเกมตัวอย่าง</span></div>
+<script>
+const correct=["วิ่ง","อ่าน","เขียน","เดิน","นอน","กระโดด","ร้อง","ว่ายน้ำ","เต้น","ยิ้ม"];
+const decoy=["ครู","บ้าน","โรงเรียน","แมว","หนังสือ","โต๊ะ","ดินสอ","ต้นไม้","รถ","ปลา"];
+let score=0,round=0,active=false;
+const arena=document.getElementById("arena"),msg=document.getElementById("msg"),stat=document.getElementById("stat");
+async function camera(){try{const s=await navigator.mediaDevices.getUserMedia({video:{facingMode:"user"},audio:false});cam.srcObject=s;fallback.style.display="none";return true}catch(e){msg.textContent="เปิดกล้องไม่ได้ — ใช้โหมดพื้นหลังสำรองได้";return false}}
+function r(a){return a[Math.floor(Math.random()*a.length)]}
+function spawn(){
+ arena.innerHTML=""; if(round>=10){active=false;msg.textContent=`จบเกม! คะแนน ${score} — อธิบายว่าคำกริยาคืออะไรให้เพื่อนฟัง`;return}
+ round++;stat.textContent=`รอบ ${round}/10 · คะแนน ${score}`;msg.textContent="แตะคำที่เป็นคำกริยา";
+ const words=[r(correct),r(decoy),r(decoy)].sort(()=>Math.random()-.5);
+ words.forEach((w,idx)=>{let b=document.createElement("button");b.className="target";b.textContent=w;
+   b.style.left=(8+idx*30+Math.random()*8)+"vw";b.style.top=(20+Math.random()*45)+"vh";
+   b.onclick=()=>pick(w);arena.appendChild(b)});
+}
+function pick(w){if(!active)return;if(correct.includes(w)){score+=10;msg.textContent="✅ ถูกต้อง +10";}else{score=Math.max(0,score-5);msg.textContent="❌ คำหลอก -5";}
+ stat.textContent=`รอบ ${round}/10 · คะแนน ${score}`;setTimeout(spawn,650)}
+start.onclick=async()=>{await camera();score=0;round=0;active=true;spawn()}
+restart.onclick=()=>{score=0;round=0;active=true;spawn()}
+</script></body></html>

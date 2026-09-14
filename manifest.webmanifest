@@ -1,0 +1,9 @@
+{
+  "name":"AI Workshop Hub — Day 0",
+  "short_name":"AI Workshop",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f4f7fb",
+  "theme_color":"#153a63",
+  "description":"AI Creator & AR Game Workshop for teachers and student leaders"
+}
