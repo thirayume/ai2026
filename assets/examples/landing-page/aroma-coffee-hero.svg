@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#FDFBF7"/>
+<circle cx="840" cy="390" r="260" fill="#EFE7DD"/>
+<ellipse cx="810" cy="610" rx="250" ry="55" fill="#2C1E1B" opacity=".12"/>
+<path d="M590 290h370v240c0 105-80 170-185 170s-185-65-185-170z" fill="#fff" stroke="#2C1E1B" stroke-width="14"/>
+<path d="M960 350h55c88 0 88 150 0 150h-55" fill="none" stroke="#2C1E1B" stroke-width="14"/>
+<ellipse cx="775" cy="310" rx="155" ry="35" fill="#6B4032"/>
+<path d="M675 260c-35-70 65-95 25-165M775 250c-30-65 60-95 20-160M865 260c-28-60 58-90 18-150" fill="none" stroke="#C8956D" stroke-width="12" stroke-linecap="round" opacity=".65"/>
+<g fill="#6B4032">
+<ellipse cx="315" cy="410" rx="70" ry="43" transform="rotate(-25 315 410)"/>
+<path d="M270 425c35-22 70-38 106-47" stroke="#FDFBF7" stroke-width="8" fill="none"/>
+<ellipse cx="410" cy="520" rx="55" ry="34" transform="rotate(22 410 520)"/>
+<path d="M370 505c25 20 48 35 83 48" stroke="#FDFBF7" stroke-width="7" fill="none"/>
+</g>
+<text x="110" y="180" fill="#2C1E1B" font-size="58" font-family="Arial, sans-serif" font-weight="700">AROMA</text>
+<text x="110" y="240" fill="#7B5E57" font-size="30" font-family="Arial, sans-serif">SPECIALTY COFFEE</text>
+</svg>

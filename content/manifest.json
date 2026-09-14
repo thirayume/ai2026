@@ -144,6 +144,22 @@
     "group": "EXTENSION / BUSINESS"
   },
   {
+    "title": "Extension — Web & Landing Page / Claude Artifacts",
+    "file": "content/prompt-web-landing-pack.md",
+    "icon": "fa-window-maximize",
+    "category": "Creative",
+    "tags": [
+      "Web",
+      "Landing Page",
+      "Claude",
+      "Artifacts",
+      "Tailwind",
+      "GitHub Pages"
+    ],
+    "order": 92,
+    "group": "CREATIVE PRODUCTION"
+  },
+  {
     "title": "Extension — Music & MV Production",
     "file": "content/prompt-music-mv-pack.md",
     "icon": "fa-music",

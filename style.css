@@ -1248,3 +1248,10 @@ img, video, iframe { max-width: 100%; }
   .music-steps{grid-template-columns:1fr}
   .music-steps>div:last-child{grid-column:auto}
 }
+
+
+/* ---------- v4.7 Landing Page Artifact ---------- */
+.landing-card{
+  background:linear-gradient(145deg,#ffffff 0%,#fffaf4 55%,#f4fbff 100%);
+  border-color:#eadbca;
+}

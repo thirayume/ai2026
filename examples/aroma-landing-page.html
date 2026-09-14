@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Aroma Specialty Coffee — Workshop Prototype</title>
+<meta name="description" content="Workshop prototype for Aroma Specialty Coffee"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{colors:{cream:'#FDFBF7',espresso:'#2C1E1B',latte:'#7B5E57',sand:'#EFE7DD',caramel:'#C8956D'},fontFamily:{inter:['Inter','system-ui','sans-serif']}}}}
+</script>
+<style>
+html{scroll-behavior:smooth} body{font-family:Inter,system-ui,sans-serif}
+:focus-visible{outline:3px solid #C8956D;outline-offset:3px}
+</style>
+</head>
+<body class="bg-cream text-espresso antialiased">
+<header class="sticky top-0 z-50 border-b border-espresso/10 bg-cream/95 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+    <a href="#home" class="font-extrabold tracking-tight">AROMA <span class="text-latte font-medium">SPECIALTY COFFEE</span></a>
+    <nav class="hidden items-center gap-8 md:flex" aria-label="เมนูหลัก">
+      <a href="#home" class="hover:text-latte">Home</a>
+      <a href="#features" class="hover:text-latte">Features</a>
+      <a href="#testimonials" class="hover:text-latte">Testimonials</a>
+      <a href="#product" class="rounded-full bg-espresso px-5 py-3 text-sm font-bold text-white hover:bg-latte">สั่งซื้อเลย</a>
+    </nav>
+    <button id="menuBtn" class="grid min-h-11 min-w-11 place-items-center rounded-xl border border-espresso/20 md:hidden" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+  </div>
+  <nav id="mobileMenu" class="hidden border-t border-espresso/10 px-5 pb-5 md:hidden" aria-label="เมนูมือถือ">
+    <div class="grid gap-2 pt-3">
+      <a href="#home" class="rounded-xl px-4 py-3 hover:bg-sand">Home</a>
+      <a href="#features" class="rounded-xl px-4 py-3 hover:bg-sand">Features</a>
+      <a href="#testimonials" class="rounded-xl px-4 py-3 hover:bg-sand">Testimonials</a>
+      <a href="#product" class="rounded-xl bg-espresso px-4 py-3 text-center font-bold text-white">สั่งซื้อเลย</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="mx-auto grid min-h-[75vh] max-w-7xl items-center gap-10 px-5 py-16 lg:grid-cols-2 lg:px-8 lg:py-24">
+  <div>
+    <span class="inline-flex rounded-full bg-sand px-4 py-2 text-sm font-semibold text-latte">Workshop Prototype · Mock Brand</span>
+    <h1 class="mt-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">กาแฟดี สำหรับวันทำงานที่ต้องการโฟกัส</h1>
+    <p class="mt-6 max-w-xl text-lg leading-8 text-latte">เมล็ดกาแฟคั่วพิเศษ โทน Chocolate, Caramel และ Roasted Almond เพื่อเช้าที่เรียบง่ายและรสชาติที่เข้าถึงได้</p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <a href="#product" class="rounded-full bg-espresso px-6 py-3.5 text-center font-bold text-white hover:bg-latte">สั่งซื้อเลย</a>
+      <a href="#features" class="rounded-full border border-espresso/25 px-6 py-3.5 text-center font-bold hover:bg-sand">เรียนรู้เพิ่มเติม</a>
+    </div>
+  </div>
+  <img src="../assets/examples/landing-page/aroma-coffee-hero.svg" alt="ภาพประกอบแก้วกาแฟ Aroma แบบจำลอง" class="w-full rounded-[2rem] border border-espresso/10 bg-white shadow-xl shadow-espresso/10"/>
+</section>
+
+<section id="features" class="bg-white/70 py-20">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="max-w-2xl"><p class="font-bold text-caramel">FEATURES</p><h2 class="mt-2 text-3xl font-extrabold sm:text-4xl">เรียบง่าย แต่ใส่ใจในทุกแก้ว</h2></div>
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      <article class="rounded-3xl border border-espresso/10 bg-cream p-7 transition hover:-translate-y-1 hover:shadow-lg"><div class="text-3xl">◉</div><h3 class="mt-5 text-xl font-bold">เมล็ดคัดมือ</h3><p class="mt-3 leading-7 text-latte">ตัวอย่าง Benefit สำหรับ Prototype โดยไม่กล่าวอ้างเกินข้อมูลที่มี</p></article>
+      <article class="rounded-3xl border border-espresso/10 bg-cream p-7 transition hover:-translate-y-1 hover:shadow-lg"><div class="text-3xl">♨</div><h3 class="mt-5 text-xl font-bold">คั่วสดใหม่</h3><p class="mt-3 leading-7 text-latte">ออกแบบ Message ให้กระชับ อ่านง่าย และเหมาะกับผู้ใช้งานบนมือถือ</p></article>
+      <article class="rounded-3xl border border-espresso/10 bg-cream p-7 transition hover:-translate-y-1 hover:shadow-lg"><div class="text-3xl">♻</div><h3 class="mt-5 text-xl font-bold">แนวทางลดผลกระทบคาร์บอน</h3><p class="mt-3 leading-7 text-latte">ก่อน Publish จริงควรเพิ่มหลักฐานหรือรายละเอียดที่ตรวจสอบได้</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="product" class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+  <div class="grid gap-8 rounded-[2rem] bg-espresso p-8 text-white lg:grid-cols-[1.2fr_.8fr] lg:p-12">
+    <div><span class="rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold">MOCK WORKSHOP DATA</span><h2 class="mt-5 text-3xl font-extrabold">Aroma Workday Blend · 250g</h2><p class="mt-4 max-w-xl leading-7 text-white/75">Medium Roast · Chocolate · Caramel · Roasted Almond</p></div>
+    <div class="flex flex-col justify-center lg:items-end"><div class="text-4xl font-extrabold">390 บาท</div><div class="mt-2 text-sm text-white/65">ราคาและข้อเสนอเป็นข้อมูลจำลอง</div></div>
+  </div>
+</section>
+
+<section id="testimonials" class="bg-sand/65 py-20">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-end"><div><p class="font-bold text-caramel">TESTIMONIALS</p><h2 class="mt-2 text-3xl font-extrabold">ตัวอย่างรีวิวสำหรับ Prototype</h2></div><span class="text-sm font-semibold text-latte">ไม่ใช่รีวิวลูกค้าจริง</span></div>
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      <blockquote class="rounded-3xl bg-white p-7 shadow-sm"><p class="text-lg leading-8">“กลิ่นหอม ดื่มง่าย เหมาะกับช่วงเช้าที่ต้องเริ่มงานเร็ว”</p><footer class="mt-5 text-sm font-bold text-latte">ผู้ใช้ตัวอย่าง A · MOCK</footer></blockquote>
+      <blockquote class="rounded-3xl bg-white p-7 shadow-sm"><p class="text-lg leading-8">“แพ็กเกจเรียบสวย และรสชาติไม่หนักจนเกินไปสำหรับดื่มที่ออฟฟิศ”</p><footer class="mt-5 text-sm font-bold text-latte">ผู้ใช้ตัวอย่าง B · MOCK</footer></blockquote>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-espresso/10 px-5 py-10">
+  <div class="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-latte sm:flex-row lg:px-3">
+    <p>Workshop Prototype — Mock Brand</p><p>hello@example.com · © 2026 Aroma Specialty Coffee</p>
+  </div>
+</footer>
+
+<script>
+const btn=document.getElementById('menuBtn');
+const menu=document.getElementById('mobileMenu');
+btn.addEventListener('click',()=>{
+  const open=btn.getAttribute('aria-expanded')==='true';
+  btn.setAttribute('aria-expanded',String(!open));
+  btn.textContent=open?'☰':'×';
+  menu.classList.toggle('hidden',open);
+});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); btn.textContent='☰';
+}));
+</script>
+</body>
+</html>

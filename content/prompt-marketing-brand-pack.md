@@ -855,3 +855,14 @@ Research Demand → Competitor → Business Brain → Brand Value → Positionin
 
 ห้ามแก้ข้อมูลให้เองก่อนรายงานความขัดแย้ง
 ```
+
+
+---
+
+## 🌐 ต่อจาก Brand Strategy → Landing Page
+
+หากต้องการแปลง Business Brain, Positioning, Persona, USP และ Brand Tone
+ให้เป็นเว็บไซต์พร้อม Preview ให้เปิด **Web & Landing Page Production — Claude Artifacts**
+
+Workflow:
+`Marketing Strategy → Landing Page Structure → Claude Artifact → Responsive QA → GitHub Pages`

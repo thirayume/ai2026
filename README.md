@@ -238,3 +238,21 @@ Reference URL ถูกใช้เพื่อวิเคราะห์คุ
 ลบ placeholder label เช่น `[สมมติฐาน]` และ `[ต้อง Validate Competitor]`
 ออกจากส่วน “ตัวอย่าง Prompt พร้อมใช้” แล้ว
 โดยเปลี่ยนเป็นคำสั่งภาษาธรรมชาติที่ใช้งานได้ทันที
+
+
+## v4.7 — Web & Landing Page / Claude Artifacts
+
+เพิ่ม:
+- Master Prompt สำหรับ Aroma Specialty Coffee
+- Production Master Prompt แบบพร้อมใช้
+- Responsive QA Prompt
+- Refactoring Prompt
+- Publish Checklist
+- Mock Brand Assets
+- Aroma Landing Page Demo
+- Claude shortcut ใน AR / Game Lab
+- Manifest / Service Worker integration
+
+Production safety:
+Testimonials ในตัวอย่างเป็น Mock Data และแสดง Label ชัดเจน
+หากใช้เว็บจริงต้องแทนด้วยรีวิวจริงที่ได้รับอนุญาต
