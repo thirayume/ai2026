@@ -208,3 +208,33 @@ v4.3 เพิ่ม Prompt Library แบบแยก Pack:
 Research Demand → Research Competitor → Business Brain → Brand Value → Positioning → Persona → Pain Point → USP → 10 Topics → Content → Polish → KV → Jingle
 
 Research Prompt ที่ต้องใช้ข้อมูลล่าสุดควรรันบน AI ที่มี Web/Search และต้องตรวจลิงก์/วันที่ข้อมูลก่อนใช้จริง
+
+
+## v4.5 — Workshop Map Ordered Navigation
+
+Sidebar และ Prompt Library เรียงตาม Workshop Map โดยใช้ `order` + `group` ใน `content/manifest.json`:
+M1 Safety → M2 Prompt → M3 Visual Story → M4 Web Game → M5 AR → M6 Review/Teach.
+`app.js` จะ sort ตาม `order` ก่อน render ทำให้เพิ่มเอกสารใหม่ภายหลังโดยไม่ทำลำดับ Workshop.
+
+
+## v4.6 — Suno + Google Flow Music Video Production
+
+เพิ่ม Creative Production Workflow:
+- Reference Music DNA Analysis
+- Original Song Brief
+- Original Thai Lyrics
+- Suno Custom Mode workflow
+- Producer revision
+- Export final audio
+- Google Flow Music: Add Audio → Music Video
+- Character continuity
+- 8-second cinematic shot workflow
+- Final MV QA
+
+Reference URL ถูกใช้เพื่อวิเคราะห์คุณลักษณะระดับสูงเท่านั้น
+ไม่คัดลอกเนื้อร้อง ทำนอง Hook ตัวตนนักร้อง หรือ MV แบบ shot-for-shot
+
+### Prompt Ready-to-use fix
+ลบ placeholder label เช่น `[สมมติฐาน]` และ `[ต้อง Validate Competitor]`
+ออกจากส่วน “ตัวอย่าง Prompt พร้อมใช้” แล้ว
+โดยเปลี่ยนเป็นคำสั่งภาษาธรรมชาติที่ใช้งานได้ทันที

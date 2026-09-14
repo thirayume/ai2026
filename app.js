@@ -67,10 +67,20 @@ let manifest=[], currentDocPath='', rawMarkdownCache='', currentSectionFilter='a
 async function initSidebar(){
   try{
     const res=await fetch('content/manifest.json?t='+Date.now()); if(!res.ok)throw new Error('manifest load failed'); manifest=await res.json();
+    manifest.sort((a,b)=>(Number(a.order)||999)-(Number(b.order)||999));
     const list=$('dynamic-doc-list'); list.innerHTML='';
+    let lastGroup='';
     manifest.forEach((item,index)=>{
+      if(item.group && item.group!==lastGroup){
+        const group=document.createElement('li');
+        group.className='doc-group-label';
+        group.textContent=item.group;
+        list.appendChild(group);
+        lastGroup=item.group;
+      }
       const li=document.createElement('li'); li.className='doc-item'+(index===0?' active':''); li.dataset.file=item.file;
-      li.innerHTML=`<i class="fa-solid ${escapeHtml(item.icon||'fa-file-lines')}"></i><span>${escapeHtml(item.title)}<small>${escapeHtml(item.category||'')}</small></span>`;
+      const meta=[item.time,item.category].filter(Boolean).join(' • ');
+      li.innerHTML=`<i class="fa-solid ${escapeHtml(item.icon||'fa-file-lines')}"></i><span>${escapeHtml(item.title)}<small>${escapeHtml(meta)}</small></span>`;
       li.addEventListener('click',()=>selectDocument(item,li)); list.appendChild(li);
     });
     const params=new URLSearchParams(location.search); const doc=params.get('doc'); const initial=manifest.find(x=>x.file===doc)||manifest[0]; if(initial) openDocumentByFile(initial.file);

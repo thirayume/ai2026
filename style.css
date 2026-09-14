@@ -1177,3 +1177,74 @@ img, video, iframe { max-width: 100%; }
   .marketing-flow i{display:none}
   .marketing-flow span{font-size:.76rem;padding:7px 10px}
 }
+
+
+/* ---------- v4.5 Workshop Map Ordered Sidebar ---------- */
+.doc-group-label{
+  list-style:none;
+  margin:14px 8px 6px;
+  padding:8px 8px 5px;
+  color:#71859b;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border-bottom:1px solid #e2ebf5;
+  pointer-events:none;
+}
+.doc-item small{line-height:1.35}
+.doc-item[data-file="content/prompt-safety-pack.md"] i,
+.doc-item[data-file="content/prompt-cards.md"] i,
+.doc-item[data-file="content/prompt-visual-story-pack.md"] i,
+.doc-item[data-file="content/prompt-game-pack.md"] i,
+.doc-item[data-file="content/prompt-ar-pack.md"] i,
+.doc-item[data-file="content/prompt-review-pack.md"] i{color:#2576ad}
+@media(max-width:980px){.doc-group-label{margin-top:10px}}
+
+
+/* ---------- v4.6 Music + MV Production ---------- */
+.music-mv-card{
+  background:linear-gradient(145deg,#ffffff 0%,#f7f4ff 52%,#eefaff 100%);
+  border-color:#d9d2f2;
+}
+.music-workflow{
+  margin-top:18px;
+  background:linear-gradient(135deg,#fff,#f9f7ff 50%,#f1fbff);
+}
+.music-steps{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+  margin:18px 0;
+}
+.music-steps>div{
+  min-width:0;
+  padding:14px 12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.music-steps strong{
+  flex:0 0 30px;
+  width:30px;height:30px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,#6d4bc3,#1d7bb0);
+  color:white;
+}
+.music-steps span{
+  color:#435a73;
+  font-size:.82rem;
+  line-height:1.45;
+}
+@media(max-width:980px){
+  .music-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .music-steps>div:last-child{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .music-steps{grid-template-columns:1fr}
+  .music-steps>div:last-child{grid-column:auto}
+}

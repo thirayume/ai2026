@@ -1,77 +1,135 @@
 [
   {
-    "title": "DAY 0 — AI Creator & AR Game",
+    "title": "DAY 0 — Workshop Map & Overview",
     "file": "content/day0.md",
     "icon": "fa-rocket",
     "category": "Day 0",
     "tags": [
       "Workshop",
-      "Mission",
-      "AR",
-      "Game",
-      "Safety"
-    ]
+      "Map",
+      "Overview"
+    ],
+    "order": 0,
+    "group": "DAY 0 — WORKSHOP MAP"
   },
   {
-    "title": "PROMPTS — Starter Cards",
+    "title": "M1 — AI Safety & Fact Check",
+    "file": "content/prompt-safety-pack.md",
+    "icon": "fa-shield-halved",
+    "category": "Mission 1",
+    "tags": [
+      "Safety",
+      "Fact Check",
+      "Privacy"
+    ],
+    "order": 10,
+    "group": "MISSIONS 1–6",
+    "mission": 1,
+    "time": "00:00–00:20"
+  },
+  {
+    "title": "M2 — Prompt Power",
     "file": "content/prompt-cards.md",
     "icon": "fa-layer-group",
-    "category": "Prompt",
+    "category": "Mission 2",
     "tags": [
       "Prompt",
-      "Quick Reference",
+      "R-C-T-F-C",
       "Starter"
-    ]
+    ],
+    "order": 20,
+    "group": "MISSIONS 1–6",
+    "mission": 2,
+    "time": "00:20–01:00"
   },
   {
-    "title": "PROMPTS — Learning Games",
-    "file": "content/prompt-game-pack.md",
-    "icon": "fa-gamepad",
-    "category": "Prompt",
-    "tags": [
-      "Prompt",
-      "Game",
-      "Education"
-    ]
-  },
-  {
-    "title": "PROMPTS — Visual & Story",
+    "title": "M3 — Visual Story",
     "file": "content/prompt-visual-story-pack.md",
     "icon": "fa-clapperboard",
-    "category": "Prompt",
+    "category": "Mission 3",
     "tags": [
-      "Prompt",
       "Image",
       "Storyboard",
       "Video"
-    ]
+    ],
+    "order": 30,
+    "group": "MISSIONS 1–6",
+    "mission": 3,
+    "time": "01:00–01:40"
   },
   {
-    "title": "PROMPTS — AR & Gesture",
+    "title": "M4 — Web Game",
+    "file": "content/prompt-game-pack.md",
+    "icon": "fa-gamepad",
+    "category": "Mission 4",
+    "tags": [
+      "Game",
+      "Education",
+      "Web"
+    ],
+    "order": 40,
+    "group": "MISSIONS 1–6",
+    "mission": 4,
+    "time": "01:50–02:35"
+  },
+  {
+    "title": "M5 — AR Challenge",
     "file": "content/prompt-ar-pack.md",
     "icon": "fa-vr-cardboard",
-    "category": "Prompt",
+    "category": "Mission 5",
     "tags": [
-      "Prompt",
       "AR",
       "MediaPipe",
       "Three.js"
-    ]
+    ],
+    "order": 50,
+    "group": "MISSIONS 1–6",
+    "mission": 5,
+    "time": "02:35–03:25"
   },
   {
-    "title": "PROMPTS — Review & Teach",
+    "title": "M6 — Test & Teach Back",
     "file": "content/prompt-review-pack.md",
     "icon": "fa-list-check",
-    "category": "Prompt",
+    "category": "Mission 6",
     "tags": [
-      "Prompt",
-      "Safety",
       "Review",
+      "UX",
       "Trainer"
-    ]
+    ],
+    "order": 60,
+    "group": "MISSIONS 1–6",
+    "mission": 6,
+    "time": "03:25–04:00"
   },
   {
-    "title": "PROMPTS — Marketing & Brand Strategy",
+    "title": "Facilitator Guide — DAY 0",
+    "file": "content/facilitator-guide.md",
+    "icon": "fa-person-chalkboard",
+    "category": "Trainer",
+    "tags": [
+      "Trainer",
+      "Workshop"
+    ],
+    "order": 70,
+    "group": "TRAINER & REFERENCE"
+  },
+  {
+    "title": "Checklist — AI Safety / Ethics / PDPA",
+    "file": "content/safety-checklist.md",
+    "icon": "fa-shield-halved",
+    "category": "Reference",
+    "tags": [
+      "Safety",
+      "Ethics",
+      "PDPA",
+      "Privacy"
+    ],
+    "order": 80,
+    "group": "TRAINER & REFERENCE"
+  },
+  {
+    "title": "Extension — Marketing & Brand Strategy",
     "file": "content/prompt-marketing-brand-pack.md",
     "icon": "fa-chart-line",
     "category": "Business",
@@ -80,32 +138,26 @@
       "Research",
       "Brand",
       "Persona",
-      "USP",
-      "Content",
-      "Business"
-    ]
+      "USP"
+    ],
+    "order": 90,
+    "group": "EXTENSION / BUSINESS"
   },
   {
-    "title": "DAY 0 — Facilitator Guide",
-    "file": "content/facilitator-guide.md",
-    "icon": "fa-person-chalkboard",
-    "category": "Day 0",
+    "title": "Extension — Music & MV Production",
+    "file": "content/prompt-music-mv-pack.md",
+    "icon": "fa-music",
+    "category": "Creative",
     "tags": [
-      "Trainer",
-      "Workshop"
-    ]
-  },
-  {
-    "title": "CHECKLIST — AI Safety / Ethics / PDPA",
-    "file": "content/safety-checklist.md",
-    "icon": "fa-shield-halved",
-    "category": "Safety",
-    "tags": [
-      "Safety",
-      "Ethics",
-      "PDPA",
-      "Privacy"
-    ]
+      "Music",
+      "Suno",
+      "Google Flow",
+      "MV",
+      "Video",
+      "Creative"
+    ],
+    "order": 95,
+    "group": "CREATIVE PRODUCTION"
   },
   {
     "title": "DAY 1 — AI เพื่อการศึกษา",
@@ -114,15 +166,19 @@
     "category": "Day 1",
     "tags": [
       "Education"
-    ]
+    ],
+    "order": 100,
+    "group": "NEXT DAYS"
   },
   {
-    "title": "DAY 2 — AI งานประจำ",
+    "title": "DAY 2 — AI เพื่อการทำงานประจำ",
     "file": "content/day2-workplace.md",
     "icon": "fa-briefcase",
     "category": "Day 2",
     "tags": [
       "Workplace"
-    ]
+    ],
+    "order": 110,
+    "group": "NEXT DAYS"
   }
 ]

@@ -35,7 +35,7 @@
 <header class="navbar">
 <button aria-label="กลับหน้า Day 0" class="brand-button" data-target="home-view">
 <i class="fa-solid fa-brain"></i>
-<span class="brand-name">AI Workshop Hub <span class="badge-tag">Full Production v4.4</span></span>
+<span class="brand-name">AI Workshop Hub <span class="badge-tag">Full Production v4.6</span></span>
 </button>
 <nav aria-label="เมนูหลัก" class="top-nav">
 <button aria-label="Day 0" class="nav-btn active" data-target="home-view"><i class="fa-solid fa-rocket"></i><span class="nav-label">Day 0</span></button>
@@ -50,11 +50,12 @@
 <div class="hero-copy">
 <span class="eyebrow"><i class="fa-solid fa-school"></i> Train-the-Trainer · ครู + นักเรียนแกนนำ</span>
 <h1>DAY 0 — AI Creator &amp; AR Game Workshop</h1>
-<p>AI Workshop Hub ฉบับ Full Production: Day 0 Workshop, Prompt Library พร้อม Assets/ตัวอย่าง, AI Bug Spotter, AR Lab และ Business/Marketing Strategy Pack</p>
+<p>AI Workshop Hub ฉบับ Full Production: Day 0 Workshop, Prompt Library พร้อม Assets/ตัวอย่าง, AI Bug Spotter, AR Lab, Marketing Strategy และ Music/MV Production ด้วย Suno + Google Flow</p>
 <div class="hero-actions">
 <button class="btn btn-primary btn-lg quick-nav" data-open-doc="content/day0.md" data-target="prompts-view"><i class="fa-solid fa-book-open"></i> เปิดคู่มือ Day 0</button>
 <button class="btn btn-accent btn-lg quick-nav" data-target="lab-view"><i class="fa-solid fa-camera"></i> ทดลอง AR Lab</button>
 <button class="btn btn-secondary btn-lg quick-nav" data-open-doc="content/prompt-marketing-brand-pack.md" data-target="prompts-view"><i class="fa-solid fa-chart-line"></i> เปิด Marketing Pack</button>
+<button class="btn btn-secondary btn-lg quick-nav" data-open-doc="content/prompt-music-mv-pack.md" data-target="prompts-view"><i class="fa-solid fa-music"></i> Music + MV</button>
 </div>
 <div class="hero-meta"><span>⏱ 4 ชั่วโมง</span><span>🧩 6 Missions</span><span>🎮 Web + AR</span><span>📱 Responsive</span><span>🌐 GitHub Pages</span></div>
 </div>
@@ -67,7 +68,7 @@
 <div class="progress-summary"><strong id="mission-progress-text">0/6 Missions</strong><div class="mini-progress"><span id="mission-progress-bar"></span></div></div>
 </div>
 <div class="timeline-grid" id="mission-grid">
-<article class="mission-card mission-open" data-mission="1" data-open-doc="content/prompt-review-pack.md" data-find="AI Safety Check" role="button" tabindex="0" aria-label="เปิดเนื้อหา Mission 1: AI Safety">
+<article class="mission-card mission-open" data-mission="1" data-open-doc="content/prompt-safety-pack.md" data-find="AI Safety Check" role="button" tabindex="0" aria-label="เปิดเนื้อหา Mission 1: AI Safety">
 <span class="mission-time">00:00–00:20</span><div class="mission-num">01</div>
 <h3>AI Safety</h3><p>AI คืออะไร, Hallucination, Privacy, ตรวจสอบก่อนเชื่อ</p>
 <div class="mission-footer"><span class="mission-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด Prompt / กิจกรรม</span>
@@ -200,7 +201,41 @@
 <article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-list-check"></i></div><h3>Interactive Quiz</h3><p>ตัวอย่างเกม AI Safety แบบ HTML ไฟล์เดียว เหมาะกับ Mission 4</p><div class="lab-actions"><button class="btn btn-primary open-demo" data-demo="examples/interactive-quiz.html" data-title="Interactive Quiz">เปิดในหน้านี้</button><a class="btn btn-secondary" href="examples/interactive-quiz.html" rel="noopener" target="_blank">เปิด Tab ใหม่</a></div></article>
 <article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-camera-retro"></i></div><h3>AR Word Hunt</h3><p>Camera background + HTML overlay + Tap/Score เป็น Core AR ที่ทำได้ใน 4 ชั่วโมง</p><div class="lab-actions"><button class="btn btn-accent open-demo" data-demo="examples/ar-word-hunt.html" data-title="AR Word Hunt">เปิดในหน้านี้</button><a class="btn btn-secondary" href="examples/ar-word-hunt.html" rel="noopener" target="_blank">เปิด Tab ใหม่</a></div></article>
 <article class="lab-card"><div class="lab-icon"><i class="fa-solid fa-code"></i></div><h3>Advanced Challenge</h3><p>ต่อยอดด้วย MediaPipe Hands + Three.js + Gesture Control ตาม Prompt ใน Day 0</p><div class="lab-actions"><button class="btn btn-secondary quick-nav" data-find="Advanced Challenge" data-open-doc="content/day0.md" data-target="prompts-view">เปิด Prompt</button></div></article>
+
+<article class="lab-card music-mv-card">
+  <div class="lab-icon"><i class="fa-solid fa-music"></i></div>
+  <h3>Suno → Google Flow MV</h3>
+  <p>วิเคราะห์ Reference DNA → สร้างเพลงต้นฉบับใน Suno → Export Audio → ทำ Music Video ใน Google Flow Music</p>
+  <div class="lab-actions">
+    <button class="btn btn-primary quick-nav" data-open-doc="content/prompt-music-mv-pack.md" data-target="prompts-view"><i class="fa-solid fa-book-open"></i> เปิด Workflow</button>
+    <a class="btn btn-secondary" href="https://suno.com/create" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Suno Create</a>
+    <a class="btn btn-accent" href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener"><i class="fa-solid fa-film"></i> Google Flow</a>
+  </div>
+</article>
+
 <article class="lab-card gemini-card"><div class="lab-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>สร้าง/แก้ AR ด้วย Gemini</h3><p>Copy Prompt → เปิด Google AI Studio Build → ให้ Gemini สร้างหรือ Import GitHub → ทดสอบ Live Preview แล้วค่อย Push กลับ GitHub</p><div class="lab-actions"><button class="btn btn-primary" id="copy-gemini-ar-prompt"><i class="fa-regular fa-copy"></i> Copy AR Prompt</button><a class="btn btn-accent" href="https://aistudio.google.com/apps" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด AI Studio Build</a></div></article>
+</div>
+
+
+<div class="music-workflow card">
+  <div class="card-title-row">
+    <div>
+      <span class="eyebrow">MUSIC + MV PRODUCTION</span>
+      <h3>Reference DNA → Suno → Final Audio → Google Flow Music → MV</h3>
+    </div>
+    <span class="soft-badge">v4.6</span>
+  </div>
+  <div class="music-steps">
+    <div><strong>1</strong><span>วิเคราะห์ Reference เฉพาะ Style DNA</span></div>
+    <div><strong>2</strong><span>ใช้ Lyrics ต้นฉบับ + Suno Custom</span></div>
+    <div><strong>3</strong><span>เลือก/แก้ Version แล้ว Export Audio</span></div>
+    <div><strong>4</strong><span>Flow Music → Add Audio → Generate MV</span></div>
+    <div><strong>5</strong><span>ตรวจ Continuity / Originality / QA</span></div>
+  </div>
+  <p class="gemini-note"><i class="fa-solid fa-circle-info"></i>
+    Reference YouTube ใช้เพื่อศึกษา Mood/Production ระดับสูงเท่านั้น ไม่ใช้ดาวน์โหลดเพื่อทำสำเนาเพลงเดิม
+    และไม่คัดลอก Melody, Lyrics, Hook, Voice identity หรือ MV แบบ shot-for-shot
+  </p>
 </div>
 
 <div class="gemini-workflow card">
