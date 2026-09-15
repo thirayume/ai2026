@@ -22,6 +22,128 @@ $$('.nav-btn,.brand-button,.quick-nav').forEach(btn=>btn.addEventListener('click
   if(btn.dataset.openDoc){ setTimeout(()=>openDocumentByFile(btn.dataset.openDoc,btn.dataset.find||''),50); }
 }));
 
+
+/* ---------- v4.11 Special Gemini Gems ---------- */
+let specialGems=[];
+
+function safeExternalUrl(value=''){
+  try{
+    const url=new URL(value,location.href);
+    if(!['http:','https:'].includes(url.protocol)) return null;
+    return url;
+  }catch(e){
+    return null;
+  }
+}
+
+function safeFaIcon(value=''){
+  return /^fa-[a-z0-9-]+$/i.test(value)?value:'fa-gem';
+}
+
+function renderSpecialGems(query=''){
+  const grid=$('gems-grid');
+  const empty=$('gems-empty');
+  if(!grid) return;
+
+  const q=query.trim().toLowerCase();
+  const items=specialGems.filter(item=>{
+    if(item.enabled===false) return false;
+    if(!q) return true;
+    return [item.title,item.description,item.category]
+      .filter(Boolean)
+      .some(value=>String(value).toLowerCase().includes(q));
+  });
+
+  grid.innerHTML='';
+  empty?.classList.toggle('hidden',items.length>0);
+
+  items.forEach(item=>{
+    const url=safeExternalUrl(item.url);
+    if(!url) return;
+
+    const article=document.createElement('article');
+    article.className='gem-link-card';
+
+    const top=document.createElement('div');
+    top.className='gem-card-top';
+
+    const icon=document.createElement('div');
+    icon.className='gem-card-icon';
+    const iconEl=document.createElement('i');
+    iconEl.className='fa-solid '+safeFaIcon(item.icon);
+    icon.appendChild(iconEl);
+
+    const text=document.createElement('div');
+    text.className='gem-card-copy';
+
+    const category=document.createElement('span');
+    category.className='gem-category';
+    category.textContent=item.category||'Gemini Gem';
+
+    const title=document.createElement('h3');
+    title.textContent=item.title||'Untitled Gem';
+
+    const desc=document.createElement('p');
+    desc.textContent=item.description||'';
+
+    text.append(category,title,desc);
+    top.append(icon,text);
+
+    const footer=document.createElement('div');
+    footer.className='gem-card-footer';
+
+    const host=document.createElement('span');
+    host.className='gem-host';
+    host.innerHTML='<i class="fa-solid fa-globe"></i>';
+    const hostText=document.createElement('span');
+    hostText.textContent=url.hostname;
+    host.appendChild(hostText);
+
+    const open=document.createElement('a');
+    open.className='btn btn-primary gem-open-btn';
+    open.href=url.href;
+    open.target='_blank';
+    open.rel='noopener noreferrer';
+    open.setAttribute('aria-label','เปิด '+(item.title||'Gemini Gem')+' ในแท็บใหม่');
+    open.innerHTML='<i class="fa-solid fa-arrow-up-right-from-square"></i><span>เปิด Gemini Gem</span>';
+
+    footer.append(host,open);
+    article.append(top,footer);
+    grid.appendChild(article);
+  });
+
+  if($('gems-count')){
+    $('gems-count').innerHTML='<i class="fa-solid fa-gem"></i> '+items.length+' Gems';
+  }
+}
+
+async function loadSpecialGems(force=false){
+  const grid=$('gems-grid');
+  try{
+    const suffix=force?('?t='+Date.now()):'';
+    const res=await fetch('data/special-gemini-gems.json'+suffix,{cache:force?'no-store':'default'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data=await res.json();
+
+    specialGems=Array.isArray(data.items)?data.items:[];
+    specialGems.sort((a,b)=>(a.order??999)-(b.order??999)||String(a.title||'').localeCompare(String(b.title||''),'th'));
+
+    if($('gems-description')&&data.description) $('gems-description').textContent=data.description;
+    renderSpecialGems($('gem-search')?.value||'');
+
+    if(force) showToast('รีเฟรช Gemini Gems แล้ว');
+  }catch(err){
+    console.error('Gemini Gems load failed:',err);
+    if(grid){
+      grid.innerHTML='<article class="gem-link-card gem-error-card"><div class="gem-card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><div><h3>โหลด Gemini Gems ไม่สำเร็จ</h3><p>ตรวจไฟล์ data/special-gemini-gems.json แล้วลองใหม่</p></div></article>';
+    }
+    if($('gems-count')) $('gems-count').innerHTML='<i class="fa-solid fa-triangle-exclamation"></i> โหลดไม่สำเร็จ';
+  }
+}
+
+on('gem-search','input',event=>renderSpecialGems(event.target.value));
+on('reload-gems','click',()=>loadSpecialGems(true));
+
 /* ---------- Audio ---------- */
 let audioCtx;
 function playSound(type){
@@ -306,4 +428,4 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http')) navigator
 
 window.addEventListener('DOMContentLoaded',async()=>{
   const initiallyActive=$('.nav-btn.active'); if(initiallyActive) initiallyActive.setAttribute('aria-current','page');
-  loadMissionProgress();updateOnline();await Promise.all([initSidebar(),loadQuestions()]);const params=new URLSearchParams(location.search),room=params.get('room');const hash=location.hash.replace('#','');if(hash){const map={home:'home-view',prompts:'prompts-view',game:'game-view',lab:'lab-view'};if(map[hash])switchView(map[hash]);}if(room){switchView('game-view');$('btn-mode-multi')?.click();$('join-room-id').value=room;}});
+  loadMissionProgress();updateOnline();await Promise.all([initSidebar(),loadQuestions(),loadSpecialGems()]);const params=new URLSearchParams(location.search),room=params.get('room');const hash=location.hash.replace('#','');if(hash){const map={home:'home-view',gems:'gems-view',prompts:'prompts-view',game:'game-view',lab:'lab-view'};if(map[hash])switchView(map[hash]);}if(room){switchView('game-view');$('btn-mode-multi')?.click();$('join-room-id').value=room;}});

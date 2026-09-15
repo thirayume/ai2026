@@ -314,3 +314,33 @@ v4.10:
 - เพิ่ม Sidebar entry แยก:
   `BONUS — Google Flow: Thai Infinite Challenge`
 - Bonus Prompt มี Asset ดาวน์โหลด + Prompt ฉบับเต็มในหน้าเดียว
+
+
+## v4.11 — Special Gemini Gems
+
+เพิ่มเมนูหลัก **Special Gemini Gems** แบบ Data-driven
+
+Data source:
+`data/special-gemini-gems.json`
+
+รายการเริ่มต้น:
+1. Storyboard สุขภาพ
+2. Storyboard วิดีโอทำอาหาร
+
+คุณสมบัติ:
+- Main navigation ใหม่
+- Dynamic JSON loader
+- เรียงด้วย `order`
+- ซ่อนรายการด้วย `enabled: false`
+- Search รายการ
+- Reload JSON
+- External links เปิด New Tab
+- `rel="noopener noreferrer"`
+- Responsive Desktop / Tablet / Mobile
+- Mobile bottom navigation ปรับเป็น 5 เมนู
+
+เพิ่ม Gem ในอนาคตโดยแก้ JSON เท่านั้น
+ไม่ต้องแก้ `index.html` หรือ `app.js`
+
+รายละเอียด schema:
+`data/special-gemini-gems.README.md`

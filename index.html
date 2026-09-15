@@ -35,10 +35,11 @@
 <header class="navbar">
 <button aria-label="กลับหน้า Day 0" class="brand-button" data-target="home-view">
 <i class="fa-solid fa-brain"></i>
-<span class="brand-name">AI Workshop Hub <span class="badge-tag">Full Production v4.10</span></span>
+<span class="brand-name">AI Workshop Hub <span class="badge-tag">Full Production v4.11</span></span>
 </button>
 <nav aria-label="เมนูหลัก" class="top-nav">
 <button aria-label="Day 0" class="nav-btn active" data-target="home-view"><i class="fa-solid fa-rocket"></i><span class="nav-label">Day 0</span></button>
+<button aria-label="Special Gemini Gems" class="nav-btn gems-nav-btn" data-target="gems-view"><i class="fa-solid fa-gem"></i><span class="nav-label nav-label-desktop">Special Gemini Gems</span><span class="nav-label nav-label-mobile">Gems</span></button>
 <button aria-label="คลังเนื้อหา" class="nav-btn" data-target="prompts-view"><i class="fa-solid fa-book-bookmark"></i><span class="nav-label">คลังเนื้อหา</span></button>
 <button aria-label="AI Bug Spotter" class="nav-btn" data-target="game-view"><i class="fa-solid fa-gamepad"></i><span class="nav-label">AI Bug Spotter</span></button>
 <button aria-label="AR / Game Lab" class="nav-btn" data-target="lab-view"><i class="fa-solid fa-vr-cardboard"></i><span class="nav-label">AR / Game Lab</span></button>
@@ -152,6 +153,53 @@
 
 </div>
 </section>
+
+<section class="view" id="gems-view">
+  <div class="gems-hero">
+    <div class="gems-hero-copy">
+      <span class="eyebrow"><i class="fa-solid fa-gem"></i> EXTERNAL GEMINI RESOURCES</span>
+      <h2>Special Gemini Gems</h2>
+      <p id="gems-description">รวม Gemini Gems พิเศษสำหรับ Workshop และงานสร้างสรรค์ คลิกเพื่อเปิดในแท็บใหม่</p>
+      <div class="gems-meta">
+        <span class="soft-badge"><i class="fa-solid fa-link"></i> External Links</span>
+        <span class="soft-badge" id="gems-count"><i class="fa-solid fa-gem"></i> กำลังโหลด...</span>
+        <span class="soft-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> เปิด New Tab</span>
+      </div>
+    </div>
+    <div class="gems-hero-icon" aria-hidden="true">
+      <i class="fa-solid fa-gem"></i>
+    </div>
+  </div>
+
+  <div class="gems-toolbar card">
+    <label class="gems-search-wrap" for="gem-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="gem-search" type="search" placeholder="ค้นหา Gemini Gem..." autocomplete="off"/>
+    </label>
+    <button class="btn btn-secondary" id="reload-gems" type="button">
+      <i class="fa-solid fa-rotate"></i> รีเฟรชรายการ
+    </button>
+  </div>
+
+  <div class="gems-grid" id="gems-grid" aria-live="polite">
+    <article class="gem-link-card gem-loading-card">
+      <div class="gem-card-icon"><i class="fa-solid fa-spinner fa-spin"></i></div>
+      <div><h3>กำลังโหลด Gemini Gems...</h3><p>อ่านข้อมูลจากไฟล์ภายนอกของระบบ</p></div>
+    </article>
+  </div>
+
+  <div class="card gems-empty hidden" id="gems-empty">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <h3>ไม่พบรายการ</h3>
+    <p>ลองเปลี่ยนคำค้น หรือเพิ่มรายการในไฟล์ข้อมูล</p>
+  </div>
+
+  <div class="gems-source-note">
+    <i class="fa-solid fa-database"></i>
+    <span>รายการอ่านแบบ Dynamic จาก <code>data/special-gemini-gems.json</code> — เพิ่มลิงก์ใหม่ในอนาคตได้โดยไม่ต้องแก้ HTML</span>
+  </div>
+</section>
+
 <section class="view" id="prompts-view">
 <div class="sidebar-layout">
 <aside class="sidebar">

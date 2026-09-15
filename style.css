@@ -1372,3 +1372,259 @@ img, video, iframe { max-width: 100%; }
   0%,65%{opacity:1}
   100%{opacity:0}
 }
+
+
+/* ---------- v4.11 Special Gemini Gems ---------- */
+.nav-label-mobile{display:none}
+
+.gems-hero{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:28px;
+  padding:clamp(28px,4vw,52px);
+  border:1px solid var(--border);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(94,92,230,.14),transparent 30%),
+    radial-gradient(circle at 15% 85%,rgba(31,164,131,.10),transparent 30%),
+    linear-gradient(145deg,#fff 0%,#f6f9ff 58%,#f4fffb 100%);
+  box-shadow:var(--shadow-sm);
+}
+.gems-hero h2{
+  margin:8px 0 10px;
+  font-size:clamp(2rem,4vw,3.5rem);
+  line-height:1.08;
+  color:#13395f;
+}
+.gems-hero p{
+  margin:0;
+  max-width:760px;
+  color:var(--text-muted);
+  font-size:clamp(.95rem,1.3vw,1.08rem);
+  line-height:1.75;
+}
+.gems-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:20px;
+}
+.gems-hero-icon{
+  width:clamp(105px,12vw,155px);
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  border-radius:32px;
+  background:linear-gradient(135deg,#275f9c,#6d4bc3 58%,#1f9b83);
+  color:#fff;
+  font-size:clamp(3rem,6vw,5rem);
+  box-shadow:0 24px 55px rgba(47,73,133,.22);
+  transform:rotate(5deg);
+}
+
+.gems-toolbar{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+}
+.gems-search-wrap{
+  flex:1 1 auto;
+  min-width:0;
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 14px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:#fff;
+  color:#7890a7;
+}
+.gems-search-wrap:focus-within{
+  border-color:#7daed2;
+  box-shadow:0 0 0 4px rgba(50,125,180,.10);
+}
+.gems-search-wrap input{
+  width:100%;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--text);
+  font:inherit;
+}
+
+.gems-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+  gap:16px;
+  margin-top:18px;
+}
+.gem-link-card{
+  min-width:0;
+  min-height:235px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:18px;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:var(--shadow-sm);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.gem-link-card:hover{
+  transform:translateY(-3px);
+  border-color:#a9cce4;
+  box-shadow:0 18px 42px rgba(20,54,88,.12);
+}
+.gem-card-top{
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+}
+.gem-card-icon{
+  flex:0 0 54px;
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:linear-gradient(135deg,#edf6ff,#f4f0ff);
+  color:#285d92;
+  font-size:1.35rem;
+}
+.gem-card-copy{
+  min-width:0;
+}
+.gem-category{
+  display:inline-flex;
+  margin-bottom:7px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:#eef6fc;
+  color:#2b6998;
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.025em;
+  text-transform:uppercase;
+}
+.gem-card-copy h3{
+  margin:0;
+  color:#173b60;
+  font-size:1.22rem;
+  line-height:1.35;
+}
+.gem-card-copy p{
+  margin:8px 0 0;
+  color:var(--text-muted);
+  line-height:1.65;
+  font-size:.9rem;
+}
+.gem-card-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding-top:15px;
+  border-top:1px solid #e8eef4;
+}
+.gem-host{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#75899e;
+  font-size:.76rem;
+}
+.gem-host span{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.gem-open-btn{
+  flex:0 0 auto;
+}
+.gems-source-note{
+  margin-top:16px;
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  padding:12px 14px;
+  border:1px dashed #c8d9e8;
+  border-radius:13px;
+  background:#f9fcff;
+  color:#60778d;
+  font-size:.82rem;
+  line-height:1.6;
+}
+.gems-source-note code{
+  color:#1f5d8c;
+  background:#edf5fb;
+  border-radius:6px;
+  padding:2px 5px;
+}
+.gems-empty{
+  margin-top:18px;
+  text-align:center;
+  color:var(--text-muted);
+}
+.gems-empty>i{
+  font-size:2rem;
+  color:#8da3b6;
+}
+.gems-empty h3{
+  color:#173b60;
+  margin:10px 0 4px;
+}
+.gem-loading-card,.gem-error-card{
+  grid-column:1/-1;
+  min-height:130px;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+@media(max-width:980px) and (min-width:761px){
+  .gems-hero{grid-template-columns:1fr auto}
+  .gems-hero-icon{width:110px;border-radius:24px}
+}
+
+@media(max-width:760px){
+  .top-nav{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .nav-label-desktop{display:none !important}
+  .nav-label-mobile{display:block !important}
+  .gems-hero{
+    grid-template-columns:1fr;
+    padding:24px 20px;
+    border-radius:24px;
+  }
+  .gems-hero-icon{
+    display:none;
+  }
+  .gems-toolbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .gems-search-wrap{width:100%}
+  .gems-toolbar .btn{width:100%}
+  .gems-grid{grid-template-columns:1fr}
+  .gem-link-card{min-height:0;padding:18px}
+  .gem-card-footer{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .gem-open-btn{width:100%}
+}
+
+@media(max-width:390px){
+  .top-nav{left:6px;right:6px;gap:2px;padding:5px}
+  .nav-btn{font-size:.58rem;padding-inline:2px}
+  .gems-meta .soft-badge{font-size:.66rem}
+}

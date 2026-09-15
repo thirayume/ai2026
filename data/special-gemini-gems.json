@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "title": "Special Gemini Gems",
+  "description": "รวม Gemini Gems พิเศษสำหรับ Workshop และงานสร้างสรรค์ คลิกเพื่อเปิดในแท็บใหม่",
+  "updated": "2026-09-16",
+  "items": [
+    {
+      "id": "storyboard-health",
+      "title": "Storyboard สุขภาพ",
+      "description": "Gem สำหรับช่วยวางแนวทางและ Storyboard คอนเทนต์/วิดีโอด้านสุขภาพ",
+      "category": "Storyboard",
+      "icon": "fa-heart-pulse",
+      "url": "https://gemini.google.com/gem/1WkYeQX7HvB_LtVpbRbjxFIMCsXbp_2Q0?usp=sharing",
+      "order": 10,
+      "enabled": true
+    },
+    {
+      "id": "storyboard-cooking-video",
+      "title": "Storyboard วิดีโอทำอาหาร",
+      "description": "Gem สำหรับออกแบบ Storyboard และลำดับฉากสำหรับวิดีโอทำอาหาร",
+      "category": "Storyboard",
+      "icon": "fa-utensils",
+      "url": "https://gemini.google.com/gem/1pieOp950AdKEQyI3ih8UIII3e0y_ETIR?usp=sharing",
+      "order": 20,
+      "enabled": true
+    },
+    {
+      "id": "suno-music",
+      "title": "Suno Music",
+      "description": "Gem สำหรับสร้างเพลงด้วย AI",
+      "category": "Music",
+      "icon": "fa-music",
+      "url": "https://gemini.google.com/gem/1pieOp950AdKEQyI3ih8UIII3e0y_ETIR?usp=sharing",
+      "order": 20,
+      "enabled": true
+    }
+  ]
+}
